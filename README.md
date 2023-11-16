@@ -1,3 +1,7 @@
+# 画面遷移図
+Figma：https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?type=design&node-id=1%3A34&mode=design&t=d4hCd0gcsxRUIJsp-1
+
+
 # サービス名
 
 漫画の処方箋
