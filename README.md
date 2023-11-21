@@ -1,3 +1,7 @@
+# ER図
+drawio: https://drive.google.com/file/d/19wupuxTK-zFh__hRmOm2-AqhGkfCv7pN/view?usp=sharing
+
+
 # 画面遷移図
 Figma：https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?type=design&node-id=1%3A34&mode=design&t=CWUEHwf0Jp2a9LKj-1
 
