@@ -3,7 +3,7 @@ drawio: https://drive.google.com/file/d/19wupuxTK-zFh__hRmOm2-AqhGkfCv7pN/view?u
 
 
 # 画面遷移図
-Figma：https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?type=design&node-id=1%3A34&mode=design&t=CWUEHwf0Jp2a9LKj-1
+Figma： https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?type=design&node-id=1-34&mode=design&t=Tp7x5d5XNqmQRPS3-0
 
 
 # サービス名
@@ -90,8 +90,6 @@ Figma：https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?typ
 - ランキング機能: ユーザーが最も喜んだ漫画を集計し、ランキングを表示する機能。
 
 - レビュー: ユーザーが漫画にレビューを追加できる機能。
-
-- 画像添付：レビューと一緒に画像を添付できる機能....必要？
 
 - カスタム漫画リスト: ユーザーが自分のお気に入り漫画をまとめてリスト化できる機能。
 
