@@ -28,11 +28,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'bootstrap', '~> 5.3.0.alpha3'
-gem 'jquery-rails'
-
-gem 'sassc-rails'
 gem "dartsass-rails", "~> 0.4.0"
-
+gem 'jquery-rails'
+gem 'sassc-rails'
+gem 'sorcery', '~> 0.16.5'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
