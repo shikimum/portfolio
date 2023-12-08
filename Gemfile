@@ -30,6 +30,8 @@ gem "jbuilder"
 gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'jquery-rails'
 
+gem 'sassc-rails'
+gem "dartsass-rails", "~> 0.4.0"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

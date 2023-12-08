@@ -1,0 +1,45 @@
+<header>
+  <nav class='navbar navbar-expand-lg navigation navbar-light bg-primary-subtle'>
+    <%= link_to '/', class: 'navbar-brand' do %>
+        <p class="h3 text-light">漫画の処方箋</p>
+    <% end %>
+    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
+      aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class='navbar-toggler-icon'></span>
+    </button>
+
+    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+      <ul class='navbar-nav ms-auto main-nav align-items-center'>
+        <li class='nav-item dropdown dropdown-slide'>
+          <%= link_to '考察', '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
+          <div class='dropdown-menu dropdown-menu-end'>
+            <%= link_to '考察一覧', '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to '考察作成', '#', class: 'dropdown-item text-secondary' %>
+          </div>
+        </li>
+
+        <li class='nav-item dropdown dropdown-slide'>
+        <%= link_to 'レビュー', '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
+        <div class='dropdown-menu dropdown-menu-end'>
+          <%= link_to 'レビュー一覧', '#', class: 'dropdown-item text-secondary' %>
+          <%= link_to 'レビュー作成', '#', class: 'dropdown-item text-secondary' %>
+        </div>
+      </li>
+
+        <li class='nav-item dropdown dropdown-slide'>
+          <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
+            <%= image_tag 'sample.png', class: 'rounded-circle mr15', width: '40', height: '40' %>
+          <% end %>
+          <div class='dropdown-menu dropdown-menu-end'>
+            <div class='dropdown-item text-secondary'>ユーザー名</div>
+            <div class='dropdown-divider'></div>
+            <%= link_to 'プロフィール', '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to 'お気に入り', '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to '診断結果', '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to 'ログアウト', '#', class: 'dropdown-item text-secondary' %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
