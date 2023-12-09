@@ -11,18 +11,18 @@
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
         <li class='nav-item dropdown dropdown-slide'>
-          <%= link_to '考察', '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
+          <%= link_to t('header.discussion'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
           <div class='dropdown-menu dropdown-menu-end'>
-            <%= link_to '考察一覧', '#', class: 'dropdown-item text-secondary' %>
-            <%= link_to '考察作成', '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.discussion_index'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.create_discussion'), '#', class: 'dropdown-item text-secondary' %>
           </div>
         </li>
 
         <li class='nav-item dropdown dropdown-slide'>
-        <%= link_to 'レビュー', '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
+        <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
         <div class='dropdown-menu dropdown-menu-end'>
-          <%= link_to 'レビュー一覧', '#', class: 'dropdown-item text-secondary' %>
-          <%= link_to 'レビュー作成', '#', class: 'dropdown-item text-secondary' %>
+          <%= link_to t('header.review_index'), '#', class: 'dropdown-item text-secondary' %>
+          <%= link_to t('header.create_review'), '#', class: 'dropdown-item text-secondary' %>
         </div>
       </li>
 
@@ -33,10 +33,10 @@
           <div class='dropdown-menu dropdown-menu-end'>
             <div class='dropdown-item text-secondary'>ユーザー名</div>
             <div class='dropdown-divider'></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item text-secondary' %>
-            <%= link_to 'お気に入り', '#', class: 'dropdown-item text-secondary' %>
-            <%= link_to '診断結果', '#', class: 'dropdown-item text-secondary' %>
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item text-secondary', data: { turbo_method: :delete } %>
+            <%= link_to t('header.profile'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.like'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.diagnosis_results'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.logout'), logout_path, class: 'dropdown-item text-secondary', data: { turbo_method: :delete } %>
           </div>
         </li>
       </ul>

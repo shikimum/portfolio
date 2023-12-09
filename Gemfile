@@ -32,6 +32,7 @@ gem "dartsass-rails", "~> 0.4.0"
 gem 'jquery-rails'
 gem 'sassc-rails'
 gem 'sorcery', '~> 0.16.5'
+gem 'rails-i18n', '~> 7.0.0'
 
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
