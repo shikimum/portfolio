@@ -28,11 +28,16 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'bootstrap', '~> 5.3.0.alpha3'
-gem 'jquery-rails'
-
-gem 'sassc-rails'
 gem "dartsass-rails", "~> 0.4.0"
+gem 'draper', '4.0.2'
+gem 'jquery-rails'
+gem 'rails-i18n', '~> 7.0.0'
+gem 'sassc-rails'
+gem 'sorcery', '~> 0.16.5'
 
+gem 'rubocop', require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -57,6 +62,9 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem "faker"
 end
 
 group :development do
@@ -74,5 +82,4 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-
 end

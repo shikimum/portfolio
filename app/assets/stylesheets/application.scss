@@ -4,3 +4,17 @@
 .navbar-light.bg-primary-subtle {
     background-color: #81bbf5ce !important;
 }
+
+.custom-container {
+    background-color: #81bbf5ce;
+    height: calc(100vh - 134px);
+    position: relative;
+    background-position: center;
+}
+
+.container {
+    background-color: #81bbf5ce !important;
+    height: calc(100vh - 134px);
+    position: relative;
+    background-position: center;
+}
