@@ -31,7 +31,7 @@
             <%= image_tag 'sample.png', class: 'rounded-circle mr15', width: '40', height: '40' %>
           <% end %>
           <div class='dropdown-menu dropdown-menu-end'>
-            <div class='dropdown-item text-secondary'>ユーザー名</div>
+            <div class='dropdown-item text-secondary'><%= current_user.decorate.users_name %></div>
             <div class='dropdown-divider'></div>
             <%= link_to t('header.profile'), '#', class: 'dropdown-item text-secondary' %>
             <%= link_to t('header.like'), '#', class: 'dropdown-item text-secondary' %>

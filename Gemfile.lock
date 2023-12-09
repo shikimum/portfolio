@@ -51,6 +51,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.0.8)
       activesupport (= 7.0.8)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (7.0.8)
       activemodel (= 7.0.8)
       activesupport (= 7.0.8)
@@ -97,6 +101,13 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    draper (4.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
+      ruby2_keywords
     erubi (1.12.0)
     execjs (2.9.1)
     faraday (2.7.12)
@@ -221,6 +232,8 @@ GEM
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     rexml (3.2.6)
     rubocop (1.58.0)
       json (~> 2.3)
@@ -308,6 +321,7 @@ DEPENDENCIES
   capybara
   dartsass-rails (~> 0.4.0)
   debug
+  draper (= 4.0.2)
   importmap-rails
   jbuilder
   jquery-rails
