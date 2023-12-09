@@ -32,6 +32,10 @@ gem "dartsass-rails", "~> 0.4.0"
 gem 'jquery-rails'
 gem 'sassc-rails'
 gem 'sorcery', '~> 0.16.5'
+
+gem 'rubocop', require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
