@@ -1,0 +1,25 @@
+<% content_for(:title, t('.title')) %>
+<div class="container" style="background-color: #81bbf5ce;">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto custom-font text-secondary" style="padding-inline: calc((100vw - 1000px) / 2);">
+      <h1><%= t('.title') %></h1>
+      <%= form_with model: @user, url: profile_path, method: :put do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="mb-3">
+        <strong><%= f.label :users_name, class: "form-label" %></strong>
+        <%= f.text_field :users_name, class: "form-control text-secondary" %>
+      </div>
+      <div class="mb-3">
+        <strong><%= User.human_attribute_name(:email) %></strong>
+      </div>
+      <div class="mb-3">
+        <%= current_user.email %>
+      </div>
+        <%= f.submit class: "btn btn-light text-secondary mb-3" %>
+      <% end %>
+      <div class='text-right'>
+        <%= link_to t('profile.change_email'), "#", class: 'btn btn-light float-right text-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>

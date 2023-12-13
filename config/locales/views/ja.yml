@@ -12,7 +12,7 @@ ja:
       title: ログイン
       login: ログイン
       to_register_page: 登録ページへ
-      password_forget: パスワードをお忘れの方はこちら
+      password_forget: パスワードを忘れた
     create:
       success: ログインしました
       failure: ログインに失敗しました
@@ -25,6 +25,11 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
   header:
     login: ログイン
     logout: ログアウト
@@ -38,3 +43,9 @@ ja:
     profile: プロフィール
     like: お気に入り
     diagnosis_results: 診断結果
+  defaults:
+    edit: 編集
+    flash_message_updated: 更新されました
+    flash_message_not_updated: 更新されませんでした
+  profile:
+    change_email: メールアドレス変更

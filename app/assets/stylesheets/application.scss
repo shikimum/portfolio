@@ -1,20 +1,14 @@
 @import "bootstrap";
-@import "top";
 
-.navbar-light.bg-primary-subtle {
-    background-color: #81bbf5ce !important;
-}
-
-.custom-container {
+//トップページ
+.top-wrapper {
     background-color: #81bbf5ce;
     height: calc(100vh - 134px);
     position: relative;
     background-position: center;
 }
 
-.container {
-    background-color: #81bbf5ce !important;
-    height: calc(100vh - 134px);
-    position: relative;
-    background-position: center;
+//文字のフォント
+.custom-font {
+    font-family: "Tsukushi B Round Gothic", "筑紫B丸ゴシック", sans-serif;
 }
