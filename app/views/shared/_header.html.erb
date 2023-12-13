@@ -1,5 +1,5 @@
 <header>
-  <nav class='navbar navbar-expand-lg navigation navbar-light bg-primary-subtle'>
+  <nav class='navbar navbar-expand-lg navigation navbar-light custom-font' style='background-color: #81bbf5ce;'>
     <%= link_to '/', class: 'navbar-brand' do %>
         <p class="h3 text-light">漫画の処方箋</p>
     <% end %>
@@ -33,7 +33,7 @@
           <div class='dropdown-menu dropdown-menu-end'>
             <div class='dropdown-item text-secondary'><%= current_user.decorate.users_name %></div>
             <div class='dropdown-divider'></div>
-            <%= link_to t('header.profile'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.profile'), profile_path, class: 'dropdown-item text-secondary' %>
             <%= link_to t('header.like'), '#', class: 'dropdown-item text-secondary' %>
             <%= link_to t('header.diagnosis_results'), '#', class: 'dropdown-item text-secondary' %>
             <%= link_to t('header.logout'), logout_path, class: 'dropdown-item text-secondary', data: { turbo_method: :delete } %>
