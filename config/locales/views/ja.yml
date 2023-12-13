@@ -30,6 +30,9 @@ ja:
       title: プロフィール
     edit:
       title: プロフィール編集
+  rankings:
+    index:
+      title: ランキング
   header:
     login: ログイン
     logout: ログアウト
@@ -38,8 +41,7 @@ ja:
     create_review: レビュー作成
     discussion: 考察
     discussion_index: 考察一覧
-    create_discussion: 掲示板作成
-    discussion_index: 考察一覧
+    create_discussion: 考察作成
     profile: プロフィール
     like: お気に入り
     diagnosis_results: 診断結果
