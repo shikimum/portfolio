@@ -1,0 +1,28 @@
+<div class="container" style="padding-inline: calc((100vw - 1300px) / 2); background-color: #81bbf5ce;">
+  <div class="row">
+    <div class="col-md-10 col-lg-5 mx-auto text-light custom-font">
+      <h1><%= t('.title') %></h1>
+
+      <%= form_with(url: '/diagnostics/create', method: 'post') do |form| %>
+        <% @questions.each do |question| %>
+          <div class="mb-3">
+            <p><strong><%= question.id %>  . <%= question.title %></strong></p>
+
+            <div class="form-check form-check-inline">
+              <%= form.radio_button "answers[#{question.id}]", true, class: "form-check-input" %>
+              <%= form.label "answers[#{question.id}]", "Yes", class: "form-check-label mb-3" %>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <%= form.radio_button "answers[#{question.id}]", false, class: "form-check-input" %>
+              <%= form.label "answers[#{question.id}]", "No", class: "form-check-label" %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= form.submit t('helpers.submit.result'), class: "btn btn-light text-secondary mb-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

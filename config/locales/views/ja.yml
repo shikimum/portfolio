@@ -4,6 +4,7 @@ ja:
       create: 登録
       submit: 保存
       update: 更新
+      result: 結果
     label:
       email: メールアドレス
       password: パスワード
@@ -33,6 +34,10 @@ ja:
   rankings:
     index:
       title: ランキング
+  diagnostics:
+    index:
+      title: 診断スタート
+
   header:
     login: ログイン
     logout: ログアウト
