@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :rankings, only: %i[index]
   resources :diagnostics, only: [:index, :create, :new]
 
-
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'

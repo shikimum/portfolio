@@ -1,3 +1,3 @@
 class FatigueType < ApplicationRecord
-    has_many :user_answers
+  has_many :user_answers
 end

@@ -1,5 +1,5 @@
 class DiagnosticsController < ApplicationController
-skip_before_action :require_login, only: %i[new create index]
+  skip_before_action :require_login, only: %i[new create index]
 
   def new; end
 
@@ -15,7 +15,7 @@ skip_before_action :require_login, only: %i[new create index]
 
     answers.each do |index, answer|
       # ユーザーの回答を取得
-      user_answer = UserAnswer.find_by(question_id: index.to_i, answer: answer)
+      user_answer = UserAnswer.find_by(question_id: index.to_i, answer:)
 
       if user_answer
         # ポイントを加算
@@ -32,7 +32,7 @@ skip_before_action :require_login, only: %i[new create index]
   end
 
   private
-  
+
   def answer_params
     params.require(:user_answer).permit(:question_id, :answer, :point)
   end
@@ -40,7 +40,7 @@ skip_before_action :require_login, only: %i[new create index]
   def all_questions_answered?
     # 質問に対する回答が全て揃っているかどうかを確認するロジックを実装
     # 例えば、params[:answers] に回答が含まれているかどうかを確認するなど
-      # 質問の数と回答の数が一致するかどうかを確認
-  return params[:answers].keys.size == @questions.size
+    # 質問の数と回答の数が一致するかどうかを確認
+    params[:answers].keys.size == @questions.size
   end
 end
