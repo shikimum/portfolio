@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class="container" style="background-color: #81bbf5ce;">
+<div class="container">
   <div class="row">
   <div class="col-md-10 col-lg-8 mx-auto custom-font text-secondary">
       <h1><%= t('.title') %></h1>
@@ -8,6 +8,18 @@
         <strong>あなたは<%= @your_fatigue.name %>で疲れているようです。</strong>
         <div class="mb-3">
         <strong><%= @your_fatigue.description %></strong>
+        <h2>Manga Data</h2>
+          <ul>
+            <% @mangas.each do |manga| %>
+              <li><%= manga.title %></li>
+            <% end %>
+          </ul>
+          <h2>Aroma Data</h2>
+          <ul>
+            <% @aromas.each do |aroma| %>
+              <li><%= aroma.name %></li>
+            <% end %>
+          </ul>
         <% else %>
         <strong>疲労タイプが見つかりませんでした。</strong>
       <% end %>

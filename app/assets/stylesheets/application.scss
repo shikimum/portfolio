@@ -2,7 +2,6 @@
 
 //トップページ
 .top-wrapper {
-    background-color: #81bbf5ce;
     height: calc(100vh - 134px);
     position: relative;
     background-position: center;
@@ -16,3 +15,11 @@
 //div {
 //	border: 2px solid #000000;
 // }
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
