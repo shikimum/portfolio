@@ -10,11 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_14_021923) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_18_044629) do
+  create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "fatigue_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fatigue_type_id"], name: "index_aromas_on_fatigue_type_id"
+  end
+
   create_table "fatigue_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "color"
+  end
+
+  create_table "mangas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.bigint "fatigue_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fatigue_type_id"], name: "index_mangas_on_fatigue_type_id"
   end
 
   create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -44,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_14_021923) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "aromas", "fatigue_types"
+  add_foreign_key "mangas", "fatigue_types"
   add_foreign_key "user_answers", "fatigue_types"
   add_foreign_key "user_answers", "questions"
 end

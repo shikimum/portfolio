@@ -37,6 +37,8 @@ ja:
   diagnostics:
     index:
       title: 診断スタート
+    create:
+      failure: 質問にすべて回答してください
 
   header:
     login: ログイン

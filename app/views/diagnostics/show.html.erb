@@ -1,0 +1,17 @@
+<% content_for(:title, t('.title')) %>
+<div class="container" style="background-color: #81bbf5ce;">
+  <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto custom-font text-secondary">
+      <h1><%= t('.title') %></h1>
+      <div class="mb-3">
+      <% if @your_fatigue.present? %>
+        <strong>あなたは<%= @your_fatigue.name %>で疲れているようです。</strong>
+        <div class="mb-3">
+        <strong><%= @your_fatigue.description %></strong>
+        <% else %>
+        <strong>疲労タイプが見つかりませんでした。</strong>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
