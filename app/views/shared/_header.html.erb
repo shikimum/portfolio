@@ -21,7 +21,7 @@
         <li class='nav-item dropdown dropdown-slide'>
         <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
         <div class='dropdown-menu dropdown-menu-end'>
-          <%= link_to t('header.review_index'), '#', class: 'dropdown-item text-secondary' %>
+          <%= link_to t('header.review_index'), reviews_path, class: 'dropdown-item text-secondary' %>
           <%= link_to t('header.create_review'), '#', class: 'dropdown-item text-secondary' %>
         </div>
       </li>
@@ -35,7 +35,7 @@
             <div class='dropdown-divider'></div>
             <%= link_to t('header.profile'), profile_path, class: 'dropdown-item text-secondary' %>
             <%= link_to t('header.like'), '#', class: 'dropdown-item text-secondary' %>
-            <%= link_to t('header.diagnosis_results'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.diagnosis_results'),  your_result_profile_path, class: 'dropdown-item text-secondary' %>
             <%= link_to t('header.logout'), logout_path, class: 'dropdown-item text-secondary', data: { turbo_method: :delete } %>
           </div>
         </li>
