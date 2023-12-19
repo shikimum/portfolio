@@ -1,7 +1,7 @@
 class DiagnosticsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create index result]
+  skip_before_action :require_login, only: %i[start create index result]
 
-  def new; end
+  def start; end
 
   def index
     @questions = Question.all

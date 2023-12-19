@@ -2,9 +2,41 @@
 
 //トップページ
 .top-wrapper {
-    height: calc(100vh - 134px);
+    height: calc(100vh - 80px);
     position: relative;
     background-position: center;
+    background-image: url('lease.png');
+    background-repeat: no-repeat;
+}
+
+.top-inner-text {
+    position: absolute;
+    top: 50%; /* お好みの位置に調整してください */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.page-section {
+    height: calc(100vh - 80px);
+    position: relative;
+    background-position: center;
+    background-image: url('top_bottom.png');
+    background-repeat: no-repeat;
+}
+
+.page-section .container {
+    position: relative;
+    z-index: 2; /* テキストが背景画像の上に表示されるようにする */
+}
+
+.page-section p.lead {
+    margin-top: 80px; /* お好みの位置に調整してください */
+}
+
+.page-section img {
+    width: 100%;
+    height: auto;
 }
 
 //文字のフォント

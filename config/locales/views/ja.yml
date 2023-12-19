@@ -39,6 +39,8 @@ ja:
       title: 診断スタート
     create:
       failure: 質問にすべて回答してください
+    result:
+      title: 診断結果
 
   header:
     login: ログイン

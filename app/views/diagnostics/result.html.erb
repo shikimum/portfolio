@@ -1,29 +1,40 @@
 <% content_for(:title, t('.title')) %>
-<div class="container">
+
+<div class="container-fluid bg-<%= @your_fatigue.color %>">
+  <div class="mb-3" style="background-image: url('<%= image_path('aroma_top.png') %>'); background-size: contain; background-position: center center; height: 200px;"></div>
+
   <div class="row">
-  <div class="col-md-10 col-lg-8 mx-auto custom-font text-secondary">
+    <div class="col-md-10 col-lg-8 mx-auto custom-font text-secondary">
       <h1><%= t('.title') %></h1>
+
       <div class="mb-3">
-      <% if @your_fatigue.present? %>
-        <strong>あなたは<%= @your_fatigue.name %>で疲れているようです。</strong>
-        <div class="mb-3">
-        <strong><%= @your_fatigue.description %></strong>
-        <h2>Manga Data</h2>
-          <ul>
-            <% @mangas.each do |manga| %>
-              <li><%= manga.title %></li>
-            <% end %>
-          </ul>
-          <h2>Aroma Data</h2>
-          <ul>
-            <% @aromas.each do |aroma| %>
-              <li><%= aroma.name %></li>
-            <% end %>
-          </ul>
+        <% if @your_fatigue.present? %>
+          <h2>あなたは<strong><%= @your_fatigue.name %></strong>で疲れているようです。</h2>
+          <div class="mb-3">
+            <strong><%= @your_fatigue.description %></strong>
+          </div>
+
+          <div class="mb-3">
+            <h2>おすすめの漫画一覧</h2>
+            <ul>
+              <% @mangas.each do |manga| %>
+                <li><strong><%= manga.title %></strong> <i class="bi bi-heart"></i></li>
+              <% end %>
+            </ul>
+
+            <h2>おすすめのアロマ</h2>
+            <ul>
+              <% @aromas.each do |aroma| %>
+                <li><strong><%= aroma.name %></strong></li>
+              <% end %>
+            </ul>
+          </div>
         <% else %>
-        <strong>疲労タイプが見つかりませんでした。</strong>
-      <% end %>
+          <strong>疲労タイプが見つかりませんでした。</strong>
+        <% end %>
       </div>
     </div>
   </div>
+
+  <div class="mb-3" style="background-image: url('<%= image_path('aroma_bottom.png') %>'); background-size: contain; background-position: center center; height: 200px;"></div>
 </div>

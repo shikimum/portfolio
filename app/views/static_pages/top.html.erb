@@ -3,47 +3,51 @@
     <img src="<%= image_path('top2.png') %>" alt="漫画の処方箋の画像">
     <h1>漫画の処方箋</h1>
     <div class="mb-2">あなたはなぜ疲れていますか？このサイトは疲れタイプに合った漫画を提供します。</div>
-    <div class="mb-2"><%= link_to 'プライバシーポリシー', '#', class: 'text-white' %>、<%= link_to '利用規約', '#', class: 'text-white' %>、に同意して</div>
-    <div><%= link_to "診断スタート", new_diagnostic_path, class: "btn btn-light text-secondary mb-3" %></div>
+    <div class="mb-2">
+      <%= link_to 'プライバシーポリシー', '#', class: 'text-white' %>、
+      <%= link_to '利用規約', '#', class: 'text-white' %>、に同意して
+    </div>
+    <div><%= link_to "診断スタート", start_diagnostics_path, class: "btn btn-light text-secondary mb-3" %></div>
+  </div>
 </div>
 
-<!-- 処方箋とは Section-->
-<section class="page-section bg-white text-secondary h-50" id="about">
-    <div class="container">
-        <!-- 処方箋とは Section Heading-->
-        <h2 class="page-section-heading text-center text-secondary">漫画の処方箋とは</h2>
-        <!-- Icon Divider-->
-        <div>
-            <div class="divider-custom-icon"><i class="bi bi-book"></i></div>
-        </div>
-        <!-- 処方箋とは Section Content-->
-        <div class="row">
-            <div>
-            <p class="lead">ユーザーの疲れタイプに合わせて漫画のタイトルをおすすめするサービスです。</p>
-            <p class="lead">ユーザーは簡単な質問に答え、それに基づいてあなたにあった漫画とアロマを提供します。</p>
-            </div>
+<!-- 処方箋とは Section -->
+<section class="page-section bg-white custom-font text-secondary" id="about">
+  <div class="container text-center">
+    <!-- 処方箋とは Section Heading -->
+    <h2 class="page-section-heading text-center text-secondary">漫画の処方箋とは</h2>
+    <!-- Icon Divider -->
+    <div>
+      <div class="divider-custom-icon"><i class="bi bi-book"></i></div>
+    </div>
+    <!-- 処方箋とは Section Content -->
+    <div class="row">
+      <div>
+        <p class="lead">ユーザーの疲れタイプに合わせて漫画のタイトルをおすすめするサービスです。</p>
+        <p class="lead">ユーザーは簡単な質問に答え、それに基づいてあなたにあった漫画とアロマを提供します。</p>
         </div>
     </div>
+  </div>
 </section>
 
-<!-- できること Section-->
-<section class="page-section text-white h-75" id="about">
-    <div class="container">
-        <!-- できること Section Heading-->
-        <h2 class="page-section-heading text-center text-white">漫画の処方箋でできること</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="bi bi-book"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <!-- できること Section Content-->
-        <div class="row">
-            <div class="col-lg-4 ms-auto"><p class="lead">診断結果をシェアできる。</p></div>
-            <div class="col-lg-4 me-auto"><p class="lead">ユーザーに人気の漫画ランキング閲覧機能</p></div>
-            <div class="col-lg-4 me-auto"><p class="lead">お気に入り漫画の更新通知機能</p></div>
-            <div class="col-lg-4 me-auto"><p class="lead">レビュー閲覧機能・投稿機能</p></div>
-            <div class="col-lg-4 me-auto"><p class="lead">漫画の考察閲覧機能・投稿機能</p></div>
-        </div>
+<!-- できること Section -->
+<section class="page-section text-white custom-font" id="about">
+  <div class="container text-center">
+    <!-- できること Section Heading -->
+    <h2 class="page-section-heading text-white">漫画の処方箋でできること</h2>
+    <!-- Icon Divider -->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="bi bi-book"></i></div>
+      <div class="divider-custom-line"></div>
     </div>
+    <!-- できること Section Content -->
+    <div class="row">
+      <div class="col-lg-4 ms-auto"><p class="lead">診断結果をシェアできる。</p></div>
+      <div class="col-lg-4 me-auto"><p class="lead">ユーザーに人気の漫画ランキング閲覧機能</p></div>
+      <div class="col-lg-4 me-auto"><p class="lead">お気に入り漫画の更新通知機能</p></div>
+      <div class="col-lg-4 me-auto"><p class="lead">レビュー閲覧機能・投稿機能</p></div>
+      <div class="col-lg-4 me-auto"><p class="lead">漫画の考察閲覧機能・投稿機能</p></div>
+    </div>
+  </div>
 </section>
