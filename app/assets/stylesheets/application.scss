@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.page-section {
+.top_page {
     height: calc(100vh - 80px);
     position: relative;
     background-position: center;
@@ -25,12 +25,12 @@
     background-repeat: no-repeat;
 }
 
-.page-section .container {
+.top_page .container {
     position: relative;
     z-index: 2; /* テキストが背景画像の上に表示されるようにする */
 }
 
-.page-section p.lead {
+.top_page p.lead {
     margin-top: 80px; /* お好みの位置に調整してください */
 }
 

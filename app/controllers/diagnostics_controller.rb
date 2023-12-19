@@ -64,13 +64,7 @@ class DiagnosticsController < ApplicationController
     @your_fatigue = FatigueType.find(@fatigue_type_id)
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
-    puts "-調査-"
-    puts @mangas.inspect
-    puts "----"
     @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
-    puts "-調査-"
-    puts @aromas.inspect
-    puts "----"
   end
 
   private

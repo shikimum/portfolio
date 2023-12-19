@@ -14,6 +14,14 @@ class ProfilesController < ApplicationController
 
   def show; end
 
+  def your_result
+    # ここでcurrent_userの疲労タイプIDを取得するか、他の方法で適切なIDを取得
+    @fatigue_type_id = current_user&.fatigue_type_id
+
+    @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
+    @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
+  end
+
   private
 
   def set_user

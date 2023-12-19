@@ -31,6 +31,8 @@ ja:
       title: プロフィール
     edit:
       title: プロフィール編集
+    your_result:
+      title: 現在の診断結果
   rankings:
     index:
       title: ランキング

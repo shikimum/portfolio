@@ -5,7 +5,7 @@
 
       <%= form_with(url: diagnostics_path, method: 'post') do |form| %>
         <% @questions.each do |question| %>
-          <div class="mb-3">
+          <div class="mb-3 question_box">
             <p><strong><%= question.id %>  . <%= question.title %></strong></p>
 
             <div class="form-check form-check-inline">
@@ -29,15 +29,15 @@
 <!-- JavaScriptの直接埋め込み -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var questions = document.querySelectorAll('.mb-3');
-
+    var questions = document.querySelectorAll('.question_box');
+          console.log("eee")
     for (var i = 1; i < questions.length; i++) {
       questions[i].style.display = 'none';
     }
 
     document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
       radio.addEventListener('change', function() {
-        var currentQuestion = this.closest('.mb-3');
+        var currentQuestion = this.closest('.question_box');
         var nextQuestion = currentQuestion.nextElementSibling;
 
         if (nextQuestion) {
