@@ -17,9 +17,6 @@ class DiagnosticsController < ApplicationController
     answers.each do |index, answer|
       # ユーザーの回答を取得
       user_answers = UserAnswer.where(question_id: index.to_i, answer: answer)
-      puts "-調査-"
-      puts user_answers.inspect
-      puts "----"
       user_answers.each do |user_answer|
         # ポイントを加算
         @faigue_points[user_answer.fatigue_type_id] += user_answer.point
@@ -39,9 +36,6 @@ class DiagnosticsController < ApplicationController
       end
     else
       # 一番ポイントが大きい疲労タイプを取得
-      puts "-調査-"
-      puts @faigue_points.inspect
-      puts "----"
       max_fatigue_id = @faigue_points.max_by { |_id, points| points }.first
     end
 
@@ -54,6 +48,7 @@ class DiagnosticsController < ApplicationController
       end
       redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
     else
+      @questions = Question.all
       flash.now[:danger] = t('diagnostic.create.failure')
       render :index, status: :unprocessable_entity
     end
