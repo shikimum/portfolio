@@ -1,16 +1,12 @@
 class DiagnosticsController < ApplicationController
   skip_before_action :require_login, only: %i[start create index result]
 
-  def start; end
-
   def index
     @questions = Question.all
   end
 
-
   def create
     answers = answer_params
-
     # ポイントを集計するハッシュを初期化
     @faigue_points = Hash.new(0)
 
@@ -41,12 +37,11 @@ class DiagnosticsController < ApplicationController
 
     @your_fatigue = FatigueType.find(max_fatigue_id) # 一番ポイントが大きい疲労タイプを取得
 
-
-      if current_user
-        current_user.fatigue_type_id = @your_fatigue.id
-        current_user.save!
-      end
-      redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
+    if current_user
+      current_user.fatigue_type_id = @your_fatigue.id
+      current_user.save!
+    end
+    redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
   end
 
   def result
