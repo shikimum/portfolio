@@ -1,4 +1,15 @@
+<!-- index.html.erb -->
 <div class="container">
+  <div class="row">
+    <div id="start_content" class="col-md-10 col-lg-5 mx-auto text-light custom-font text-center">
+      <h1>質問は合計で10問です。</h1>
+      <br>
+      <div id="start_link_container"><%= link_to "診断スタート", "#", id: "start_link", class: "btn btn-light text-secondary" %></div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="diagnostics_container" style="display: none;">
   <div class="row">
     <div class="col-md-10 col-lg-5 mx-auto text-light custom-font">
       <h1><%= t('.title') %></h1>
@@ -29,11 +40,23 @@
 <!-- JavaScriptの直接埋め込み -->
 <script>
   document.addEventListener("turbo:load", function() {
+    var startContent = document.getElementById("start_content");
+    var startLinkContainer = document.getElementById("start_link_container");
+    var diagnosticsContainer = document.getElementById("diagnostics_container");
+
+    startLinkContainer.addEventListener('click', function(event) {
+      event.preventDefault();
+      startContent.style.display = 'none';  // <h1>質問は合計で10問です。</h1>を非表示にする
+      startLinkContainer.style.display = 'none';
+      diagnosticsContainer.style.display = 'block';
+    });
+
+    // 以下の JavaScript コードを追加
     var questions = document.querySelectorAll('.question_box');
     for (var i = 1; i < questions.length; i++) {
       questions[i].style.display = 'none';
     }
-    
+
     var submit_button = document.getElementById("question_submit");
     submit_button.style.display = 'none';
 
@@ -47,7 +70,7 @@
           nextQuestion.style.display = 'block';
         }
 
-        // チェックボックスが全て選択された場合にsubmit_buttonを表示
+        // チェックボックスが全て選択された場合に submit_button を表示
         var allRadioButtons = document.querySelectorAll('input[type="radio"]');
         var allRadioChecked = true;
         allRadioButtons.forEach(function(radio) {
@@ -63,3 +86,4 @@
     });
   });
 </script>
+

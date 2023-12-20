@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :diagnostics, only: [:index, :create] do
     collection do
       get 'result'
-      get 'start'
     end
   end
 
