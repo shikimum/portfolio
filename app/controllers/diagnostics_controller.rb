@@ -41,17 +41,12 @@ class DiagnosticsController < ApplicationController
 
     @your_fatigue = FatigueType.find(max_fatigue_id) # 一番ポイントが大きい疲労タイプを取得
 
-    if all_questions_answered?
+
       if current_user
         current_user.fatigue_type_id = @your_fatigue.id
         current_user.save!
       end
       redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
-    else
-      @questions = Question.all
-      flash.now[:danger] = t('diagnostic.create.failure')
-      render :index, status: :unprocessable_entity
-    end
   end
 
   def result
@@ -66,10 +61,5 @@ class DiagnosticsController < ApplicationController
 
   def answer_params
     params.require(:answers)
-  end
-
-  def all_questions_answered?
-    # 質問の数と回答の数が一致するかどうかを確認
-    params[:answers].keys.size == Question.all.size
   end
 end
