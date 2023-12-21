@@ -22,7 +22,7 @@
         <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
         <div class='dropdown-menu dropdown-menu-end'>
           <%= link_to t('header.review_index'), reviews_path, class: 'dropdown-item text-secondary' %>
-          <%= link_to t('header.create_review'), '#', class: 'dropdown-item text-secondary' %>
+          <%= link_to t('header.create_review'), new_review_path, class: 'dropdown-item text-secondary' %>
         </div>
       </li>
 

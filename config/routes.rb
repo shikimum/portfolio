@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :rankings, only: %i[index]
-  resources :reviews, only: %i[index]
+  resources :reviews, only: %i[index new create]
   resources :diagnostics, only: [:index, :create] do
     collection do
       get 'result'

@@ -2,9 +2,14 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      review: レビュー
     attributes:
       user:
         email: メールアドレス
         users_name: ユーザー名
         password: パスワード
         password_confirmation: パスワード確認
+        password_confirmation: パスワード確認
+      review:
+        title: 漫画タイトル
+        body: レビュー

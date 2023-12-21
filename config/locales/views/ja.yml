@@ -43,6 +43,11 @@ ja:
       failure: 質問にすべて回答してください
     result:
       title: 診断結果
+  reviews:
+    new:
+      title: レビュー作成
+    index:
+      title: レビュー一覧
 
   header:
     login: ログイン
@@ -60,5 +65,8 @@ ja:
     edit: 編集
     flash_message_updated: 更新されました
     flash_message_not_updated: 更新されませんでした
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
   profile:
     change_email: メールアドレス変更
