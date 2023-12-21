@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       review: レビュー
+      discussion: 考察
     attributes:
       user:
         email: メールアドレス
@@ -13,3 +14,7 @@ ja:
       review:
         title: 漫画タイトル
         body: レビュー
+      discussion:
+        title: 漫画タイトル
+        volume: 巻
+        body: 考察

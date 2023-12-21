@@ -48,6 +48,11 @@ ja:
       title: レビュー作成
     index:
       title: レビュー一覧
+  discussions:
+    new:
+      title: 考察作成
+    index:
+      title: 考察一覧
 
   header:
     login: ログイン

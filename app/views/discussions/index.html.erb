@@ -4,19 +4,20 @@
     <h1><%= t('.title') %></h1>
       <form>
         <div class="input-group mb-3"><input class="form-control" placeholder="タイトル" type="search"/>
+        <div class="input-group mb-3"><input class="form-control-sm" placeholder="巻" type="search"/>
           <div class="input-group-append"><input type="submit" value="検索" class="btn btn-light text-secondary"/></div>
         </div>
       </form>
     </div>
   </div>
-  <!-- レビュー一覧 -->
+  <!-- 掲示板一覧 -->
   <div class="row">
     <div class="col-lg-5 offset-lg-1">
       <div class="row">
-        <% if @reviews.present? %>
-          <%= render @reviews %>
+        <% if @discussions.present? %>
+          <%= render @discussions %>
         <% else %>
-          <div class="mb-3">レビューがありません</div>
+          <div class="mb-3">考察がありません</div>
         <% end %>
       </div>
     </div>

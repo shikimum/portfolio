@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 offset-lg-2 text-light custom-font">
+      <h1><%= t('.title') %></h1>
+      <%= form_with model: @discussion, class: "new_discussion" do |f| %>
+        <div class="mb-3">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :volume %>
+          <%= f.number_field :volume, class: "form-control", min: 1, max: 200 %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :body %>
+          <%= f.text_area :body, class: "form-control", row: "10", style: "height: 200px" %>
+        </div>
+        <%= f.submit nil, class: "btn btn-light text-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

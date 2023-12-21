@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_19_052950) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_21_032218) do
   create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "fatigue_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fatigue_type_id"], name: "index_aromas_on_fatigue_type_id"
+  end
+
+  create_table "discussions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "volume"
+    t.bigint "user_id", null: false
+    t.bigint "manga_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manga_id"], name: "index_discussions_on_manga_id"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "fatigue_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -76,10 +88,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_052950) do
   end
 
   add_foreign_key "aromas", "fatigue_types"
+  add_foreign_key "discussions", "mangas"
+  add_foreign_key "discussions", "users"
   add_foreign_key "mangas", "fatigue_types"
   add_foreign_key "reviews", "mangas"
   add_foreign_key "reviews", "users"
   add_foreign_key "user_answers", "fatigue_types"
   add_foreign_key "user_answers", "questions"
-  add_foreign_key "users", "fatigue_types"
 end
