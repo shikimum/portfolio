@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_19_052950) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_20_044807) do
   create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "fatigue_type_id", null: false
@@ -81,5 +81,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_052950) do
   add_foreign_key "reviews", "users"
   add_foreign_key "user_answers", "fatigue_types"
   add_foreign_key "user_answers", "questions"
-  add_foreign_key "users", "fatigue_types"
 end

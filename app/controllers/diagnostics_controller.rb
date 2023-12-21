@@ -1,25 +1,18 @@
 class DiagnosticsController < ApplicationController
   skip_before_action :require_login, only: %i[start create index result]
 
-  def start; end
-
   def index
     @questions = Question.all
   end
 
-
   def create
     answers = answer_params
-
     # ポイントを集計するハッシュを初期化
     @faigue_points = Hash.new(0)
 
     answers.each do |index, answer|
       # ユーザーの回答を取得
       user_answers = UserAnswer.where(question_id: index.to_i, answer: answer)
-      puts "-調査-"
-      puts user_answers.inspect
-      puts "----"
       user_answers.each do |user_answer|
         # ポイントを加算
         @faigue_points[user_answer.fatigue_type_id] += user_answer.point
@@ -39,24 +32,16 @@ class DiagnosticsController < ApplicationController
       end
     else
       # 一番ポイントが大きい疲労タイプを取得
-      puts "-調査-"
-      puts @faigue_points.inspect
-      puts "----"
       max_fatigue_id = @faigue_points.max_by { |_id, points| points }.first
     end
 
     @your_fatigue = FatigueType.find(max_fatigue_id) # 一番ポイントが大きい疲労タイプを取得
 
-    if all_questions_answered?
-      if current_user
-        current_user.fatigue_type_id = @your_fatigue.id
-        current_user.save!
-      end
-      redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
-    else
-      flash.now[:danger] = t('diagnostic.create.failure')
-      render :index, status: :unprocessable_entity
+    if current_user
+      current_user.fatigue_type_id = @your_fatigue.id
+      current_user.save!
     end
+    redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
   end
 
   def result
@@ -71,10 +56,5 @@ class DiagnosticsController < ApplicationController
 
   def answer_params
     params.require(:answers)
-  end
-
-  def all_questions_answered?
-    # 質問の数と回答の数が一致するかどうかを確認
-    params[:answers].keys.size == Question.all.size
   end
 end

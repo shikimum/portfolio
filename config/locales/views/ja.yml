@@ -43,6 +43,11 @@ ja:
       failure: 質問にすべて回答してください
     result:
       title: 診断結果
+  static_pages:
+    privacy_policy:
+      title: プライバシーポリシー
+    terms_of_service:
+      title: 利用規約
 
   header:
     login: ログイン
