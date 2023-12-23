@@ -13,8 +13,8 @@
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to t('header.discussion'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
           <div class='dropdown-menu dropdown-menu-end'>
-            <%= link_to t('header.discussion_index'), '#', class: 'dropdown-item text-secondary' %>
-            <%= link_to t('header.create_discussion'), '#', class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.discussion_index'), discussions_path, class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.create_discussion'), new_discussion_path, class: 'dropdown-item text-secondary' %>
           </div>
         </li>
 
@@ -22,13 +22,13 @@
         <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
         <div class='dropdown-menu dropdown-menu-end'>
           <%= link_to t('header.review_index'), reviews_path, class: 'dropdown-item text-secondary' %>
-          <%= link_to t('header.create_review'), '#', class: 'dropdown-item text-secondary' %>
+          <%= link_to t('header.create_review'), new_review_path, class: 'dropdown-item text-secondary' %>
         </div>
       </li>
 
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-            <%= image_tag 'sample.png', class: 'rounded-circle mr15', width: '40', height: '40' %>
+          <i class="bi bi-person-circle rounded-circle mr15" style="width: 40px; height: 40px;"></i>
           <% end %>
           <div class='dropdown-menu dropdown-menu-end'>
             <div class='dropdown-item text-secondary'><%= current_user.decorate.users_name %></div>

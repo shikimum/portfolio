@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   belongs_to :fatigue_type
   has_many :reviews, dependent: :destroy
+  has_many :discussions, dependent: :destroy
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

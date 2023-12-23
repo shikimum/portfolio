@@ -1,0 +1,24 @@
+<div class="container pt-3 text-light custom-font">
+  <div class="row">
+    <div class="col-lg-5 offset-lg-1">
+    <h1><%= t('.title') %></h1>
+      <form>
+        <div class="input-group mb-3"><input class="form-control" placeholder="タイトル" type="search"/>
+          <div class="input-group-append"><input type="submit" value="検索" class="btn btn-light text-secondary"/></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- レビュー一覧 -->
+  <div class="row">
+    <div class="col-lg-5 offset-lg-1">
+      <div class="row">
+        <% if @reviews.present? %>
+          <%= render @reviews %>
+        <% else %>
+          <div class="mb-3">レビューがありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
