@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_21_032218) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_23_010029) do
   create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "fatigue_type_id", null: false

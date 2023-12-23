@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 skip_before_action :require_login, only: %i[index]
 
   def index
-    @reviews = Review.all.includes(:user)
+    @reviews = Review.includes(:user)
   end
 
 
@@ -17,6 +17,7 @@ skip_before_action :require_login, only: %i[index]
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Review.model_name.human)
       render :new, status: :unprocessable_entity
+      puts @review.errors.full_messages 
     end
   end
 
