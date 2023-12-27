@@ -31,3 +31,10 @@ COPY yarn.lock /portfolio/yarn.lock
 RUN bundle install
 RUN yarn install
 COPY . /portfolio
+
+# asset precomile
+# RUN bundle exec rails css:build
+RUN bundle exec rails assets:precompile
+
+# サーバー起動
+CMD bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
