@@ -1,9 +1,9 @@
 <header>
-  <nav class='navbar navbar-expand-lg navigation navbar-light custom-font fixed-top'>
+  <nav class='navbar navbar-expand-sm navigation navbar-light custom-font fixed-top'>
     <%= link_to '/', class: 'navbar-brand' do %>
-        <p class="h3 text-light">漫画の処方箋</p>
+      <p class="h3 text-light">漫画の処方箋</p>
     <% end %>
-    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
+    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
@@ -19,16 +19,16 @@
         </li>
 
         <li class='nav-item dropdown dropdown-slide'>
-        <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
-        <div class='dropdown-menu dropdown-menu-end'>
-          <%= link_to t('header.review_index'), reviews_path, class: 'dropdown-item text-secondary' %>
-          <%= link_to t('header.create_review'), new_review_path, class: 'dropdown-item text-secondary' %>
-        </div>
-      </li>
+          <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
+          <div class='dropdown-menu dropdown-menu-end'>
+            <%= link_to t('header.review_index'), reviews_path, class: 'dropdown-item text-secondary' %>
+            <%= link_to t('header.create_review'), new_review_path, class: 'dropdown-item text-secondary' %>
+          </div>
+        </li>
 
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-          <i class="bi bi-person-circle rounded-circle mr15" style="width: 40px; height: 40px;"></i>
+            <i class="bi bi-person-circle rounded-circle mr15" style="width: 40px; height: 40px;"></i>
           <% end %>
           <div class='dropdown-menu dropdown-menu-end'>
             <div class='dropdown-item text-secondary'><%= current_user.decorate.users_name %></div>

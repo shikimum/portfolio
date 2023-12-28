@@ -1,13 +1,7 @@
 @import "bootstrap";
 
 //トップページ
-.top-wrapper {
-    height: calc(100vh - 50px);
-    position: relative;
-    background-position: center;
-    background-image: url('lease.png');
-    background-repeat: no-repeat;
-}
+
 
 .top-inner-text {
     position: absolute;
@@ -17,12 +11,7 @@
     text-align: center;
 }
 
-.top_page {
-    height: auto;
-    background-position: center;
-    background-image: url('top_bottom.png');
-    background-repeat: no-repeat;
-}
+
 
 //文字のフォント
 .custom-font {
