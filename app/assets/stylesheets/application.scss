@@ -1,27 +1,12 @@
 @import "bootstrap";
 
 //トップページ
-.top-wrapper {
-    height: calc(100vh - 50px);
-    position: relative;
-    background-position: center;
-    background-image: url('lease.png');
-    background-repeat: no-repeat;
-}
-
 .top-inner-text {
     position: absolute;
     top: 50%; /* お好みの位置に調整してください */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-.top_page {
-    height: auto;
-    background-position: center;
-    background-image: url('top_bottom.png');
-    background-repeat: no-repeat;
 }
 
 //文字のフォント

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-lg-5 mx-auto text-light custom-font">
+    <div class="col-9 col-lg-4 mx-auto text-light custom-font">
       <h1><%= t('.title') %></h1>
       <%= form_with model: @user, url: login_path do |f| %>
         <div class="mb-3">
@@ -14,9 +14,9 @@
         <%= f.submit t('.login'), class: "btn btn-light text-secondary mb-3" %>
       <% end %>
       <div class='text-center'>
-        <%= link_to t('.to_register_page'), new_user_path, class: 'btn btn-light text-secondary mx-3' %>
-        <%= link_to t('.password_forget'), '#', class: 'btn btn-light text-secondary' %>
-      </div>
+        <%= link_to t('.to_register_page'), new_user_path, class: 'btn btn-light text-secondary me-md-3 mb-3' %>
+        <%= link_to t('.password_forget'), '#', class: 'btn btn-light text-secondary ms-md-3 mb-3' %>
+      </div>    
     </div>
   </div>
 </div>

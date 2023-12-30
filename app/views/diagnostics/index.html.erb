@@ -1,10 +1,11 @@
-<!-- index.html.erb -->
 <div class="container">
   <div class="row">
     <div id="start_content" class="col-md-10 col-lg-5 mx-auto text-light custom-font text-center">
       <h1>質問は合計で10問です。</h1>
       <br>
-      <div id="start_link_container"><%= link_to "診断スタート", "#", id: "start_link", class: "btn btn-light text-secondary" %></div>
+      <div id="start_link_container">
+        <%= link_to "診断スタート", "#", id: "start_link", class: "btn btn-light text-secondary" %>
+      </div>
     </div>
   </div>
 </div>
@@ -19,14 +20,16 @@
           <div class="mb-3 question_box">
             <p><strong><%= question.id %>  . <%= question.title %></strong></p>
 
-            <div class="form-check form-check-inline">
-              <%= form.radio_button "answers[#{question.id}]", true, class: "form-check-input" %>
-              <%= form.label "answers[#{question.id}]", "Yes", class: "form-check-label mb-3" %>
-            </div>
+            <div class="d-flex justify-content-center">
+              <div class="form-check form-check-inline">
+                <%= form.radio_button "answers[#{question.id}]", true, class: "form-check-input" %>
+                <%= form.label "answers[#{question.id}]", "Yes", class: "form-check-label mb-3" %>
+              </div>
 
-            <div class="form-check form-check-inline">
-              <%= form.radio_button "answers[#{question.id}]", false, class: "form-check-input" %>
-              <%= form.label "answers[#{question.id}]", "No", class: "form-check-label" %>
+              <div class="form-check form-check-inline">
+                <%= form.radio_button "answers[#{question.id}]", false, class: "form-check-input" %>
+                <%= form.label "answers[#{question.id}]", "No", class: "form-check-label" %>
+              </div>
             </div>
           </div>
         <% end %>
