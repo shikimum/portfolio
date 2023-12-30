@@ -1,15 +1,10 @@
 @import "bootstrap";
 
-//トップページ
-.top-inner-text {
-    position: absolute;
-    top: 50%; /* お好みの位置に調整してください */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
 //文字のフォント
+@font-face {
+    font-family: "Tsukushi B Round Gothic";
+    src: url("/path/to/TsukushiB.ttf") format("truetype");
+}
 .custom-font {
     font-family: "Tsukushi B Round Gothic", "筑紫B丸ゴシック", sans-serif;
 }
@@ -21,3 +16,7 @@
     left: 0;
     z-index: 1030;
 }
+
+//div {
+//  border: 2px solid #000000;
+//}

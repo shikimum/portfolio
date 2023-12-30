@@ -12,7 +12,7 @@
       <ul class='navbar-nav ms-auto main-nav align-items-center'>
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to t('header.discussion'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
-          <div class='dropdown-menu dropdown-menu-end' style="background-color:#81bbf5ce;">
+          <div class='dropdown-menu dropdown-menu-end dropdown-menu-dark' style="background-color:#81bbf5ce;">
             <%= link_to t('header.discussion_index'), discussions_path, class: 'dropdown-item text-light link-opacity-100-hover' %>
             <%= link_to t('header.create_discussion'), new_discussion_path, class: 'dropdown-item text-light link-opacity-100-hover' %>
           </div>
@@ -20,7 +20,7 @@
 
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to t('header.review'), '#', class: 'nav-link dropdown-toggle text-light', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-board-menu' %>
-          <div class='dropdown-menu dropdown-menu-end' style="background-color:#81bbf5ce;">
+          <div class='dropdown-menu dropdown-menu-end dropdown-menu-dark' style="background-color:#81bbf5ce;">
             <%= link_to t('header.review_index'), reviews_path, class: 'dropdown-item text-light' %>
             <%= link_to t('header.create_review'), new_review_path, class: 'dropdown-item text-light' %>
           </div>
@@ -30,7 +30,7 @@
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
             <i class="bi bi-person-circle rounded-circle mr15" style="width: 40px; height: 40px;"></i>
           <% end %>
-          <div class='dropdown-menu dropdown-menu-end' style="background-color:#81bbf5ce;">
+          <div class='dropdown-menu dropdown-menu-end dropdown-menu-dark' style="background-color:#81bbf5ce;">
             <div class='dropdown-item text-light'><%= current_user.decorate.users_name %></div>
             <div class='dropdown-divider'></div>
             <%= link_to t('header.profile'), profile_path, class: 'dropdown-item text-light' %>

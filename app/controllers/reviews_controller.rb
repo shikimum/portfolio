@@ -8,6 +8,7 @@ skip_before_action :require_login, only: %i[index]
 
   def new
     @review = Review.new
+    @manga = Manga.find(params[:manga_id])
   end
 
   def create
@@ -24,6 +25,6 @@ skip_before_action :require_login, only: %i[index]
   private
 
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body, :manga_id)
   end
 end

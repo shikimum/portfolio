@@ -1,11 +1,10 @@
-<div class="d-flex justify-content-center align-items-center">
-  <img src="<%= image_path('lease.png') %>" alt="Your Image" class="img-fluid">
+<div class="d-flex flex-column align-items-center">
+  <img src="<%= image_path('top.png') %>" alt="Your Image" class="img-fluid col-lg-5">
   <div class='top-wrapper custom-font text-center text-white'>
-    <div class='top-inner-text'>
-      <img src="<%= image_path('top2.png') %>" alt="漫画の処方箋の画像">
+    <div class='top-inner-text col-12'>
       <h1>漫画の処方箋</h1>
-      <div class="mb-2 col-12">あなたはなぜ疲れていますか？このサイトは疲れタイプに合った漫画を提供します。</div>
-      <div class="mb-2">
+      <div class="mb-2 col-12">
+        <div class="mt-6 col-12 text-center text-light text-nowrap">このサイトは疲れタイプに合った漫画を提供します。</div>
         <%= link_to 'プライバシーポリシー', privacy_policy_path, class: 'text-white' %>、
         <%= link_to '利用規約', terms_of_service_path, class: 'text-white' %>、に同意して
       </div>
