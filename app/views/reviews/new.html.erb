@@ -3,6 +3,7 @@
     <div class="col-10 col-lg-4 offset-lg-2 text-light custom-font mx-auto">
       <h1><%= t('.title') %></h1>
       <%= form_with model: @review, class: "new_review" do |f| %>
+        <%= f.hidden_field :manga_id, value: @manga.id %> 
         <div class="mb-3">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
