@@ -25,6 +25,6 @@ skip_before_action :require_login, only: %i[index]
   private
 
   def review_params
-    params.require(:review).permit(:title, :body, :manga_id)
+    params.require(:review).permit(:title, :body)
   end
 end
