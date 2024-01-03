@@ -20,3 +20,15 @@
     </div>
   </div>
 </div>
+
+<%# if !Like.exists?(user: current_user, manga_id: @manga.id) %>   <!-- お気に入り未登録の時 -->
+  <%# <%= link_to likes_path(@manga), method: :post, remote: true, class: "like-btn like-manga" do %> %>
+    <%# <i class="bi bi-heart"></i> %>
+    <%# <span>いいね！</span> %>
+  <%# end %>
+<%# else %>    <!-- お気に入り登録済みの時 -->
+  <%# <%= link_to likes_path(@manga), method: :delete, remote: true, class: "like-btn like-manga-delete" do %> %>
+    <%# <i class="bi bi-heart"></i> %>
+    <%# <span>いいね！</span> %>
+  <%# end %>
+<%# end %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :rankings, only: %i[index]
   resources :reviews, only: %i[index new create edit update destroy]
   resources :discussions, only: %i[index new create edit update destroy]
+  resources :likes, only: [:index, :create, :destroy]
   resources :diagnostics, only: [:index, :create] do
     collection do
       get 'result'

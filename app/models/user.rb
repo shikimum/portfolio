@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_one :fatigue_type
   has_many :reviews, dependent: :destroy
   has_many :discussions, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
