@@ -48,6 +48,8 @@ ja:
       title: レビュー作成
     index:
       title: レビュー一覧
+    edit:
+      title: レビュー編集
   discussions:
     new:
       title: 考察作成
