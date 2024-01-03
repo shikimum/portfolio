@@ -8,7 +8,7 @@
           <%= link_to edit_discussion_path(discussion), id: "button-edit-#{discussion.id}" do %>
             <i class="bi bi-pencil"></i>
           <% end %>
-          <%= link_to discussion_path(discussion), id: "button-delete-#{discussion.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+          <%= link_to discussion_path(discussion), class: "delete-discussion-link", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
             <i class="bi bi-trash3"></i>
           <% end %>
         </div>
