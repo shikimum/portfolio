@@ -1,9 +1,9 @@
 <div class="container mt-5">
-  <% @rdiscussions.each do |discussion| %>
+  <% @discussions.each do |discussion| %>
     <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title"><%= discussion.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= discussion.user_name %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%= discussion.user.users_name %></h6>
         <p class="card-text"><%= discussion.volume %></p>
         <p class="card-text"><%= discussion.body %></p>
       </div>

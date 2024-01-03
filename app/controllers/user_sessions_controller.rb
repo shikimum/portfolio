@@ -6,11 +6,11 @@ skip_before_action :require_login, only: %i[new create]
   end
 
   def create
-    @user = login(params[:email], params[:password])
-  
+    @user = login(user_login_params[:email], user_login_params[:password])
       if @user
         redirect_to rankings_path, success: t('user_sessions.create.success')
       else
+        @user = User.new
         flash.now[:danger] = t('user_sessions.create.failure')
         render :new, status: :unprocessable_entity
       end
@@ -19,5 +19,11 @@ skip_before_action :require_login, only: %i[new create]
   def destroy
     logout
     redirect_to root_path, status: :see_other, danger: t('user_sessions.destroy.success')
+  end
+
+  private
+
+  def user_login_params
+    params.require(:user).permit(:email, :password)
   end
 end  

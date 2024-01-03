@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  belongs_to :fatigue_type
+  has_one :fatigue_type
   has_many :reviews, dependent: :destroy
   has_many :discussions, dependent: :destroy
 

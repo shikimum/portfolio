@@ -8,11 +8,12 @@ skip_before_action :require_login, only: %i[index]
 
   def new
     @review = Review.new
-    @manga = Manga.find(params[:manga_id])
   end
 
   def create
+    manga = Manga.find_by(title: review_params[:manga_id])
     @review = current_user.reviews.build(review_params)
+    @review.manga = manga
     if @review.save
       redirect_to reviews_path, success: t('defaults.flash_message.created', item: Review.model_name.human)
     else
@@ -25,6 +26,6 @@ skip_before_action :require_login, only: %i[index]
   private
 
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:manga_id, :body)
   end
 end
