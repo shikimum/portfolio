@@ -53,6 +53,8 @@ ja:
       title: 考察作成
     index:
       title: 考察一覧
+    edit:
+      title: 考察編集
   static_pages:
     privacy_policy:
       title: プライバシーポリシー
@@ -72,10 +74,15 @@ ja:
     diagnosis_results: 診断結果
   defaults:
     edit: 編集
+    create: 作成
+    delete_confirm: 削除しますか？
     flash_message_updated: 更新されました
     flash_message_not_updated: 更新されませんでした
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
   profile:
     change_email: メールアドレス変更

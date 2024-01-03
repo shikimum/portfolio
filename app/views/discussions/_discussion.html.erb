@@ -3,6 +3,16 @@
     <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title"><%= discussion.title %></h5>
+        <% if current_user.own?(discussion) %>
+        <div class='ms-auto'>
+          <%= link_to edit_discussion_path(discussion), id: "button-edit-#{discussion.id}" do %>
+            <i class="bi bi-pencil"></i>
+          <% end %>
+          <%= link_to discussion_path(discussion), id: "button-delete-#{discussion.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+            <i class="bi bi-trash3"></i>
+          <% end %>
+        </div>
+        <% end %>
         <h6 class="card-subtitle mb-2 text-muted"><%= discussion.user.users_name %></h6>
         <p class="card-text"><%= discussion.volume %></p>
         <p class="card-text"><%= discussion.body %></p>
