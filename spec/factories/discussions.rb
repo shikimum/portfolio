@@ -1,8 +1,10 @@
+require 'faker'
+
 FactoryBot.define do
   factory :discussion do
-    title { "Sample Discussion" }
-    volume { "Volume 1" }
-    body { "This is a sample discussion body." }
-    association :user, factory: :user
+    body { Faker::Lorem.paragraph(sentence_count: 5) }
+    sequence(:title) { |n| "Discussion Title #{n}" }  # 一意のタイトルを生成する
+    sequence(:volume) { |n| "Volume #{n}" } 
+    association :user
   end
 end

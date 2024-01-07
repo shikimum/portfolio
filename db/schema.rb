@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_03_171221) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_05_103803) do
   create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "fatigue_type_id", null: false
@@ -37,6 +37,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_03_171221) do
     t.string "color"
   end
 
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "manga_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manga_id"], name: "index_likes_on_manga_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "mangas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.bigint "fatigue_type_id", null: false
@@ -52,7 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_03_171221) do
   end
 
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title", null: false
     t.text "body", null: false
     t.bigint "manga_id", null: false
     t.bigint "user_id", null: false
@@ -87,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_03_171221) do
 
   add_foreign_key "aromas", "fatigue_types"
   add_foreign_key "discussions", "users"
+  add_foreign_key "likes", "mangas"
+  add_foreign_key "likes", "users"
   add_foreign_key "mangas", "fatigue_types"
   add_foreign_key "reviews", "mangas"
   add_foreign_key "reviews", "users"

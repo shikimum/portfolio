@@ -1,36 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe Discussion, type: :model do
-  let(:user) { create(:user) }
-  let(:manga) { create(:manga) }
+  let(:user) { create(:user) }  # テスト用のユーザーを作成する
 
-  it "is valid with valid attributes" do
-    discussion = build(:discussion, user: user, manga: manga)
+  it '有効な属性であること' do
+    discussion = build(:discussion, user: user)
     expect(discussion).to be_valid
   end
 
-  it "is not valid without a title" do
-    discussion = build(:discussion, title: nil, user: user, manga: manga)
-    expect(discussion).not_to be_valid
+  it 'タイトルがない場合は無効であること' do
+    discussion = build(:discussion, title: nil, user: user)
+    discussion.valid?
+    expect(discussion.errors[:title]).to include('を入力してください')
   end
 
-  it "is not valid with a title longer than 50 characters" do
-    discussion = build(:discussion, title: "a" * 51, user: user, manga: manga)
-    expect(discussion).not_to be_valid
+  it 'タイトルが50文字を超える場合は無効であること' do
+    discussion = build(:discussion, title: 'a' * 51, user: user)
+    discussion.valid?
+    expect(discussion.errors[:title]).to include('は50文字以内で入力してください')
   end
 
-  it "is valid with a volume longer than 50 characters" do
-    discussion = build(:discussion, volume: "a" * 51, user: user, manga: manga)
+  it 'ボリュームが50文字を超えていても有効であること' do
+    discussion = build(:discussion, volume: 'a' * 51, user: user)
     expect(discussion).to be_valid
   end
 
-  it "is not valid without a body" do
-    discussion = build(:discussion, body: nil, user: user, manga: manga)
-    expect(discussion).not_to be_valid
+  it '本文がない場合は無効であること' do
+    discussion = build(:discussion, body: nil, user: user)
+    discussion.valid?
+    expect(discussion.errors[:body]).to include('を入力してください')
   end
 
-  it "is not valid with a body longer than 1000 characters" do
-    discussion = build(:discussion, body: "a" * 1001, user: user, manga: manga)
-    expect(discussion).not_to be_valid
+  it '本文が1000文字を超える場合は無効であること' do
+    discussion = build(:discussion, body: 'a' * 1001, user: user)
+    discussion.valid?
+    expect(discussion.errors[:body]).to include('は1000文字以内で入力してください')
   end
 end
