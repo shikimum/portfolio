@@ -11,6 +11,10 @@ class DiagnosticsController < ApplicationController
     @faigue_points = Hash.new(0)
 
     answers.each do |index, answer|
+      if answer != "true" && answer != "false"
+        flash.now[:danger] = "回答が不十分のエラーです。"
+        return redirect_to diagnostics_path
+      end
       # ユーザーの回答を取得
       user_answers = UserAnswer.where(question_id: index.to_i, answer: answer)
       user_answers.each do |user_answer|
@@ -19,24 +23,20 @@ class DiagnosticsController < ApplicationController
       end
     end
 
-    # 質問IDが10で回答がfalseの場合の条件分岐(子供がいないと回答した時に、育児疲れタイプにならないようにする。)
-    if answers[10] == 'false'
-      max_fatigue_ids = @faigue_points.sort_by { |_id, points| points }.reverse.to_h.keys
-
-      # 同点の場合、ランダムで疲労タイプを選択
-      if max_fatigue_ids.size > 1 && @faigue_points[max_fatigue_ids[0]] == @faigue_points[max_fatigue_ids[1]]
-        max_fatigue_ids = max_fatigue_ids.select { |id| @faigue_points[id] == @faigue_points[max_fatigue_ids[0]] }
-        max_fatigue_id = max_fatigue_ids.sample
-      else
-        max_fatigue_id = max_fatigue_ids[0] # 一番ポイントが高い疲労タイプのID
-      end
+    # 同点の場合、ランダムで疲労タイプを選択
+    max_fatigue_ids = @faigue_points.sort_by { |_id, points| points }.reverse.to_h.keys
+    if max_fatigue_ids.size > 1 && @faigue_points[max_fatigue_ids[0]] == @faigue_points[max_fatigue_ids[1]]
+      max_fatigue_ids = max_fatigue_ids.select { |id| @faigue_points[id] == @faigue_points[max_fatigue_ids[0]] }
+      max_fatigue_id = max_fatigue_ids.sample
     else
-      # 一番ポイントが大きい疲労タイプを取得
-      max_fatigue_id = @faigue_points.max_by { |_id, points| points }.first
+      max_fatigue_id = max_fatigue_ids[0] # 一番ポイントが高い疲労タイプのID
     end
 
+    # 質問IDが10で回答がfalseの場合の条件分岐(子供がいないと回答した時に、育児疲れタイプにならないようにする。)
+    #if answers[10] == 'false' && max_fatigue_id == FatigueType.find_by(title: "育児疲れ").id
+    #  
+    #end
     @your_fatigue = FatigueType.find(max_fatigue_id) # 一番ポイントが大きい疲労タイプを取得
-
     if current_user
       current_user.fatigue_type_id = @your_fatigue.id
       current_user.save!
@@ -45,7 +45,7 @@ class DiagnosticsController < ApplicationController
   end
 
   def result
-    @fatigue_type_id = params[:your_fatigue_id] # show ページに渡された疲労タイプのID
+    @fatigue_type_id = params[:your_fatigue_id] # showページに渡された疲労タイプのID
     @your_fatigue = FatigueType.find(@fatigue_type_id)
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
