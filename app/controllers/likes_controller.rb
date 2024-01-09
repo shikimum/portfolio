@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   def index
     @user = current_user
     likes = Like.where(user_id: current_user.id).pluck(:manga_id)
-    @like_list = Manga.find(likes)  
+    @like_list = Manga.find(likes)
   end
 
   def create
@@ -26,4 +26,3 @@ class LikesController < ApplicationController
     @user = User.find(current_user.id)
   end
 end
-
