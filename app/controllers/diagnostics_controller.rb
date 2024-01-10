@@ -22,6 +22,11 @@ class DiagnosticsController < ApplicationController
         @faigue_points[user_answer.fatigue_type_id] += user_answer.point
       end
     end
+puts @faigue_points.inspect
+    # 質問IDが10で回答がfalseの場合の条件分岐(子供がいないと回答した時に、育児疲れタイプにならないようにする。)
+    if answers[10] == 'false'
+      @faigue_points = @faigue_points.keys.reject { |id| id == FatigueType.find_by(title: "育児疲れ").id }
+    end
 
     # 同点の場合、ランダムで疲労タイプを選択
     max_fatigue_ids = @faigue_points.sort_by { |_id, points| points }.reverse.to_h.keys
@@ -31,14 +36,6 @@ class DiagnosticsController < ApplicationController
     else
       max_fatigue_id = max_fatigue_ids[0] # 一番ポイントが高い疲労タイプのID
     end
-
-    # 質問IDが10で回答がfalseの場合の条件分岐(子供がいないと回答した時に、育児疲れタイプにならないようにする。)
-    if answers[10] == 'false' && max_fatigue_id == FatigueType.find_by(title: "育児疲れ").id
-      # 一番高いポイントの疲労タイプ以外で、2番目に高いポイントの疲労タイプを選択
-      second_highest_fatigue_id = @faigue_points.keys.reject { |id| id == max_fatigue_id }.max_by { |id| @faigue_points[id] }
-    end
-    # @faigue_points.keysは疲労タイプIDの配列を取得、reject { |id| id == max_fatigue_id } は、一番高いポイントを持つ疲労タイプIDを除外
-    # max_by { |id| @faigue_points[id] } を使用して、それらの中でポイントが最大の疲労タイプIDを見つける。
 
     @your_fatigue = FatigueType.find(max_fatigue_id) # 一番ポイントが大きい疲労タイプを取得
     if current_user

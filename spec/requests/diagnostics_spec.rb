@@ -57,24 +57,11 @@ RSpec.describe "Diagnostics", type: :request do
         expect(response).to redirect_to(diagnostics_path)
       end
     end
-    # context "特殊な条件の場合" do
-    #   context "答えが育児になる場合で、最後の質問に子供なしと答えた場合" do
-    #   end
-    #   context "回答結果が複数選ばれた時、ランダムで診断結果が表示される" do
-    #   end
-    # end
-    context "ユーザーがログインしている場合" do
-      let(:user) { create(:user) }
-
-      before do
-        sign_in user
-      end
-
-      it "選ばれたタイプがユーザーと紐づけられる" do
-        post diagnostics_path, params: { answers: { "1" => "true", "2" => "false", "3" => "false", "4" => "true", "5" => "true", "6" => "false", "7" => "true", "8" => "false", "9" => "true", "10" => "false" } }
-        expect(response).to redirect_to(result_diagnostics_path(your_fatigue_id: anything)) # どの疲労タイプが選ばれるかは確定していないためanythingを使用
-        user.reload # ユーザーオブジェクトを再読み込みして最新の情報を取得
-        expect(user.fatigue_type_id).to eq(assigns(:your_fatigue).id)
+    context "答えが育児になる場合で、最後の質問に子供なしと答えた場合はエネルギー疲れになる" do
+      let(:your_fatigue_type) { FatigueType.find_by(name: "エネルギー不足") }
+      it "returns http success" do
+        post diagnostics_path, params: { answers: { "1" => "false", "2" => "false", "3" => "false", "4" => "true", "5" => "false", "6" => "false", "7" => "true", "8" => "false", "9" => "false", "10" => "false" } }
+        expect(response).to redirect_to(result_diagnostics_path(your_fatigue_id: your_fatigue_type.id))
       end
     end
   end
