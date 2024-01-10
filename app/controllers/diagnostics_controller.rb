@@ -22,7 +22,7 @@ class DiagnosticsController < ApplicationController
         @faigue_points[user_answer.fatigue_type_id] += user_answer.point
       end
     end
-puts @faigue_points.inspect
+
     # 質問IDが10で回答がfalseの場合の条件分岐(子供がいないと回答した時に、育児疲れタイプにならないようにする。)
     if answers[10] == 'false'
       @faigue_points = @faigue_points.keys.reject { |id| id == FatigueType.find_by(title: "育児疲れ").id }
