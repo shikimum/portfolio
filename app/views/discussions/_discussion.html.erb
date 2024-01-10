@@ -1,9 +1,8 @@
 <div class="container mt-5">
-  <% @discussions.each do |discussion| %>
     <div class="card mt-3">
       <div class="card-body">
         <h5 class="card-title"><%= discussion.title %></h5>
-        <% if current_user.own?(discussion) %>
+        <% if current_user&.own?(discussion) %>
         <div class='ms-auto'>
           <%= link_to edit_discussion_path(discussion), id: "button-edit-#{discussion.id}" do %>
             <i class="bi bi-pencil"></i>
@@ -18,5 +17,4 @@
         <p class="card-text"><%= discussion.body %></p>
       </div>
     </div>
-  <% end %>
 </div>

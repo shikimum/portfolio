@@ -1,11 +1,10 @@
 class ReviewsController < ApplicationController
-skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index]
 
   def index
     @reviews = Review.includes(:user)
     puts @reviews.inspect
   end
-
 
   def new
     @review = Review.new
@@ -39,8 +38,8 @@ skip_before_action :require_login, only: %i[index]
   end
 
   def destroy
-    review = current_user.reviews.find(params[:id])
-    review.destroy!
+    @review = current_user.reviews.find(params[:id])
+    @review.destroy!
     redirect_to reviews_path, success: t('defaults.flash_message.deleted', item: Review.model_name.human), status: :see_other
   end
 

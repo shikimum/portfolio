@@ -1,10 +1,9 @@
 class DiscussionsController < ApplicationController
-skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index]
 
   def index
     @discussions = Discussion.all.includes(:user)
   end
-
 
   def new
     @discussion = Discussion.new
@@ -46,4 +45,3 @@ skip_before_action :require_login, only: %i[index]
     params.require(:discussion).permit(:title, :volume, :body)
   end
 end
-

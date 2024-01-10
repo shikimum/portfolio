@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Discussion, type: :model do
-  let(:user) { create(:user) }  # テスト用のユーザーを作成する
+  let(:user) { create(:user) } # テスト用のユーザーを作成する
 
   it '有効な属性であること' do
     discussion = build(:discussion, user: user)
