@@ -34,8 +34,8 @@ class DiscussionsController < ApplicationController
   end
 
   def destroy
-    discussion = current_user.discussions.find(params[:id])
-    discussion.destroy!
+    @discussion = current_user.discussions.find(params[:id])
+    @discussion.destroy!
     redirect_to discussions_path, success: t('defaults.flash_message.deleted', item: Discussion.model_name.human), status: :see_other
   end
 
