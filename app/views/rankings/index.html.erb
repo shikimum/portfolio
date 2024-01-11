@@ -6,29 +6,31 @@
       <div class="row">
         <div class="col-12 col-md-10 col-lg-12 mx-auto custom-font text-secondary">
           <h1 class="text-nowrap text-center"><%= t('.title') %></h1>
-          <div class="mb-3">
-            <span class="text-nowrap"><%= image_tag("gold_icon.png") %>xxxxxxxxxxxxxxxxxxxx<i class="bi bi-heart"></i></span>
-          </div>
-          <div class="mb-3">
-            <span class="text-nowrap"><%= image_tag("silver_icon.png") %>xxxxxxxxxxxxxxxxxxxx<i class="bi bi-heart"></i></span>
-          </div>
-          <div class="mb-3">
-            <span class="text-nowrap"><%= image_tag("blonze_icon.png") %>xxxxxxxxxxxxxxxxxxxx<i class="bi bi-heart"></i></span>
-          </div>
+          
+          <!-- Ranking List -->
+          <ol class="mt-4">
+            <% @ranking.each_with_index do |manga, index| %>
+              <li>
+                <%= ranking_icon(index + 1) %> <%= manga.title %> - いいね数: <%= manga.likes.count %>
+              </li>
+            <% end %>
+          </ol>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<%# if !Like.exists?(user: current_user, manga_id: @manga.id) %>   <!-- お気に入り未登録の時 -->
-  <%# <%= link_to likes_path(@manga), method: :post, remote: true, class: "like-btn like-manga" do %> %>
-    <%# <i class="bi bi-heart"></i> %>
-    <%# <span>いいね！</span> %>
-  <%# end %>
-<%# else %>    <!-- お気に入り登録済みの時 -->
-  <%# <%= link_to likes_path(@manga), method: :delete, remote: true, class: "like-btn like-manga-delete" do %> %>
-    <%# <i class="bi bi-heart"></i> %>
-    <%# <span>いいね！</span> %>
-  <%# end %>
-<%# end %>
+<%# Helper method to determine the ranking icon based on position %>
+<% def ranking_icon(position) %>
+  <% case position %>
+    <% when 1 %>
+      <%= image_tag("gold_icon.png", class: "ranking-icon") %> 
+    <% when 2 %>
+      <%= image_tag("silver_icon.png", class: "ranking-icon") %> 
+    <% when 3 %>
+      <%= image_tag("bronze_icon.png", class: "ranking-icon") %> 
+    <% else %>
+      <%= position %>
+  <% end %>
+<% end %>
