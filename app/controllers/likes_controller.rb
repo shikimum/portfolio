@@ -1,23 +1,20 @@
 class LikesController < ApplicationController
-  before_action :set_user, only: %i[edit update]
-
-  def index
-    @user = current_user
-    likes = Like.where(user_id: current_user.id).pluck(:manga_id)
-    @like_list = Manga.find(likes)
-  end
+  before_action :set_user, only: %i[create destroy]
 
   def create
-    @manga = Manga.find(params[:manga_id])
-    current_user.likes.create(manga: @manga)
-    redirect_to @manga, notice: 'Manga added to favorites'
+    manga = Manga.find(params[:manga_id])
+    current_user.like(manga)
+    redirect_back fallback_location: your_result_profile_path
   end
 
   def destroy
-    @like = current_user.likes.find(params[:id])
-    @manga = @like.manga
-    @like.destroy
-    redirect_to @manga, notice: 'Manga removed from favorites'
+    manga = current_user.likes_mangas.find(params[:manga_id])
+    current_user.unlike(manga)
+    redirect_back fallback_location: your_result_profile_path
+  end
+
+  def likes
+    @like_mangas = current_user.likes_mangas.includes(:user)
   end
 
   private

@@ -19,7 +19,7 @@
             <h2>おすすめの漫画一覧</h2>
             <ul>
               <% @mangas.each do |manga| %>
-                <li><strong><%= manga.title %></strong> <i class="bi bi-heart"></i></li>
+                <li><strong><%= manga.title %></strong><%= render 'like_button', manga: manga %></li>
               <% end %>
             </ul>
 

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update] do
     collection do
       get 'your_result'
+      resources :likes, only: [:create, :destroy]
+      get :likes
     end
   end
   resources :rankings, only: %i[index]
