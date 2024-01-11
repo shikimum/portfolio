@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'sassc-rails'
 gem 'sorcery', '~> 0.16.5'
+gem 'ransack'
 
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false

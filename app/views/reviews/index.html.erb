@@ -1,17 +1,23 @@
 <div class="container pt-3 text-light custom-font">
   <div class="row justify-content-center">
-    <div class="col-10 col-lg-4 offset-lg-1">
+    <div class="col-10 col-lg-6"> <!-- Adjusted column size for better layout -->
       <h1><%= t('.title') %></h1>
-      <form>
+      <%= form_for @q, url: reviews_path do |f| %>
         <div class="input-group mb-3">
-          <input class="form-control" placeholder="タイトル" type="search" />
+          <div data-controller="autocomplete" data-autocomplete-url-value="/reviews/search" role="combobox">
+            <%= f.search_field :title_cont, data: { autocomplete_target: 'input' }, class: "form-control", placeholder: "漫画タイトルを入力してください" %>
+            <%= f.hidden_field :title, data: { autocomplete_target: 'hidden' } %>
+          </div>
           <div class="input-group-append">
-            <input type="submit" value="検索" class="btn btn-light text-secondary" />
+            <%= f.submit "検索", class: "btn btn-light text-secondary" %>
           </div>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
+</div>
+
+
   <!-- レビュー一覧 -->
   <div class="row justify-content-center">
     <div class="col-10 col-lg-4 offset-lg-1">

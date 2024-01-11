@@ -20,6 +20,10 @@ class ProfilesController < ApplicationController
 
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
     @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
+
+    #@user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type_id, only_path: false)
+    #@user_result_title = @your_fatigue.title # または適切なタイトルを取得
+
   end
 
   private

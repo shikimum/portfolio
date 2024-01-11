@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "static_pages#top"
 
   resources :users, only: %i[new create]
+
   resource :profile, only: %i[show edit update] do
     collection do
       get 'your_result'
@@ -9,10 +10,19 @@ Rails.application.routes.draw do
       get :likes
     end
   end
+
   resources :rankings, only: %i[index]
-  resources :reviews, only: %i[index new create edit update destroy]
+
+  resources :reviews, only: %i[index new create edit update destroy] do
+    collection do
+      get :search
+    end
+  end
+
   resources :discussions, only: %i[index new create edit update destroy]
+
   resources :likes, only: [:index, :create, :destroy]
+
   resources :diagnostics, only: [:index, :create] do
     collection do
       get 'result'
