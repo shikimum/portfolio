@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @manga = current_user.like_mangas.find(params[:id]).manga
+    @manga = current_user.like_mangas.find(params[:manga_id])
     current_user.unlike(@manga)
     redirect_to your_result_profile_path, status: :see_other
   end

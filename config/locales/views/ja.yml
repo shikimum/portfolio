@@ -33,6 +33,8 @@ ja:
       title: プロフィール編集
     your_result:
       title: 現在の診断結果
+    likes:
+      title: お気に入り一覧
   rankings:
     index:
       title: ランキング

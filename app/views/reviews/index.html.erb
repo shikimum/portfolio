@@ -1,11 +1,11 @@
 <div class="container pt-3 text-light custom-font">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-6 form-auto">
+    <div class="col-10 col-lg-4 offset-lg-1">
         <h1><%= t('.title') %></h1>
         <%= search_form_for @q, url: reviews_path do |f| %>
           <div class="input-group mb-3">
             <div data-controller="autocomplete" data-autocomplete-url-value="/reviews/search" role="combobox">
-              <%= f.search_field :manga_title_cont, data: { autocomplete_target: 'input' }, class: "form-control", placeholder: "漫画タイトルを入力してください" %>
+              <%= f.search_field :manga_title_eq, data: { autocomplete_target: 'input' }, class: "form-control mx-auto" , placeholder: "漫画タイトルを入力してください" %>
               <%= f.hidden_field :manga_title, data: { autocomplete_target: 'hidden' } %>
               <ul class="list-group bg-white absolute w-full md:text-sm max-w-max" data-autocomplete-target="results"></ul>
             </div>

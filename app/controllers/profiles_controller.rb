@@ -23,6 +23,11 @@ class ProfilesController < ApplicationController
 
     @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type.id)
     @user_result_title = @fatigue_type.name
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("your_result_frame", partial: "profiles/your_result") }
+    end
   end
 
   def likes
