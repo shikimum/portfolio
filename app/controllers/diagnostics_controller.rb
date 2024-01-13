@@ -51,6 +51,9 @@ class DiagnosticsController < ApplicationController
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
     @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
+
+    @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type_id)
+    @user_result_title = @your_fatigue.name
   end
 
   private

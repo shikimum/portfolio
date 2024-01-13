@@ -1,22 +1,22 @@
 <div class="container pt-3 text-light custom-font">
   <div class="row justify-content-center">
-    <div class="col-10 col-lg-6"> <!-- Adjusted column size for better layout -->
-      <h1><%= t('.title') %></h1>
-      <%= form_for @q, url: reviews_path do |f| %>
-        <div class="input-group mb-3">
-          <div data-controller="autocomplete" data-autocomplete-url-value="/reviews/search" role="combobox">
-            <%= f.search_field :title_cont, data: { autocomplete_target: 'input' }, class: "form-control", placeholder: "漫画タイトルを入力してください" %>
-            <%= f.hidden_field :title, data: { autocomplete_target: 'hidden' } %>
+    <div class="col-12 col-lg-6 form-auto">
+        <h1><%= t('.title') %></h1>
+        <%= search_form_for @q, url: reviews_path do |f| %>
+          <div class="input-group mb-3">
+            <div data-controller="autocomplete" data-autocomplete-url-value="/reviews/search" role="combobox">
+              <%= f.search_field :manga_title_cont, data: { autocomplete_target: 'input' }, class: "form-control", placeholder: "漫画タイトルを入力してください" %>
+              <%= f.hidden_field :manga_title, data: { autocomplete_target: 'hidden' } %>
+              <ul class="list-group bg-white absolute w-full md:text-sm max-w-max" data-autocomplete-target="results"></ul>
+            </div>
+            <div class="input-group-append">
+              <%= f.submit "検索", class: "btn btn-light text-secondary" %>
+            </div>
           </div>
-          <div class="input-group-append">
-            <%= f.submit "検索", class: "btn btn-light text-secondary" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
   </div>
 </div>
-
 
   <!-- レビュー一覧 -->
   <div class="row justify-content-center">

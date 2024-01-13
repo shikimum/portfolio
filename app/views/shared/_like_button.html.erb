@@ -1,0 +1,5 @@
+<% if current_user.like?(manga) %>
+  <%= render 'shared/unlike', { manga: manga } %>
+<% else %>
+  <%= render 'shared/like', { manga: manga } %>
+<% end %>

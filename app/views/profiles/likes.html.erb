@@ -2,7 +2,11 @@
 <div class="col-12">
   <div class="row">
     <% if @like_mangas.present? %>
-      <%= render @like_mangas %>
+      <ul>
+        <% @like_mangas.each do |like_manga| %>
+          <li><strong><%= like_manga.title %></strong></li>
+        <% end %>
+      </ul>
     <% else %>
       <p><%= t('.no_result') %></p>
     <% end %>
