@@ -1,15 +1,14 @@
 <div class="container pt-3 text-light custom-font">
   <div class="row justify-content-center">
-    <div class="col-lg-5">
+    <div class="col-10 col-lg-4 offset-lg-1">
       <h1><%= t('.title') %></h1>
       <%= search_form_for @q, url: discussions_path do |f| %>
-        <div class="input-group" data-controller="autocomplete" data-autocomplete-url-value="/discussions/search" role="combobox">
-          <%= f.search_field :title_cont, class: "form-control", placeholder: "タイトル", data: { autocomplete_target: 'input' } %>
+        <div class="mb-3" data-controller="autocomplete" data-autocomplete-url-value="/discussions/search" role="combobox">
+          <%= f.search_field :title_cont, class: "form-control mb-2", placeholder: "タイトル", data: { autocomplete_target: 'input' } %>
           <%= f.hidden_field :title, data: { autocomplete_target: 'hidden' } %>
-          <%= f.search_field :volume_eq, class: "form-control", placeholder: "巻" %>
-          <%= f.hidden_field :volume, data: { autocomplete_target: 'hidden' } %>
+          <%= f.search_field :volume_eq, class: "form-control mb-2", placeholder: "巻" %>
           <ul class="list-group bg-white" data-autocomplete-target="results"></ul>
-          <div class="input-group-append">
+          <div class="mb-3">
             <%= f.submit "検索", class: "btn btn-light text-secondary" %>
           </div>
         </div>
