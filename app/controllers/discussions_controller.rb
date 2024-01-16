@@ -1,8 +1,16 @@
 class DiscussionsController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index search]
 
   def index
-    @discussions = Discussion.all.includes(:user)
+    @q = Discussion.ransack(params[:q])
+    @discussions = @q.result(distinct: true)
+  end
+
+  def search
+    @discussions = Discussion.where("title like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

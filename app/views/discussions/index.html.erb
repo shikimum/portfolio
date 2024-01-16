@@ -1,20 +1,23 @@
 <div class="container pt-3 text-light custom-font">
   <div class="row justify-content-center">
-    <div class="col-lg-4 offset-lg-1 form-auto">
+    <div class="col-lg-5">
       <h1><%= t('.title') %></h1>
-      <form class="d-flex justify-content-center align-items-center">
-        <div class="input-group mb-3">
-          <input class="form-control col-10" placeholder="タイトル" type="search"/>
-        </div>
-        <div class="input-group mb-3">
-          <input class="form-control col-2" placeholder="巻" type="search"/>
+      <%= search_form_for @q, url: discussions_path do |f| %>
+        <div class="input-group" data-controller="autocomplete" data-autocomplete-url-value="/discussions/search" role="combobox">
+          <%= f.search_field :title_cont, class: "form-control", placeholder: "タイトル", data: { autocomplete_target: 'input' } %>
+          <%= f.hidden_field :title, data: { autocomplete_target: 'hidden' } %>
+          <%= f.search_field :volume_eq, class: "form-control", placeholder: "巻" %>
+          <%= f.hidden_field :volume, data: { autocomplete_target: 'hidden' } %>
+          <ul class="list-group bg-white" data-autocomplete-target="results"></ul>
           <div class="input-group-append">
-            <input type="submit" value="検索" class="btn btn-light text-secondary"/>
+            <%= f.submit "検索", class: "btn btn-light text-secondary" %>
           </div>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
+</div>
+
   <!-- 掲示板一覧 -->
   <div class="row justify-content-center">
     <div class="col-10 col-lg-4 offset-lg-1">

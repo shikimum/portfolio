@@ -3,7 +3,7 @@ class Manga < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  def self.ransackable_attributes(auth_object = nil)
-    [ "title" ]
+  def self.ransackable_attributes(_auth_object = nil)
+    ["title"]
   end
 end

@@ -1,16 +1,9 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index search]
 
   def index
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true).includes(:user)
-  end
-
-  def search
-    @reviews = Review.ransack(title_cont: params[:q]).result(distinct: true).includes(:user)
-    respond_to do |format|
-      format.js
-    end
   end
 
   def new

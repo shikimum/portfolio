@@ -19,7 +19,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :discussions, only: %i[index new create edit update destroy]
+  resources :discussions, only: %i[index new create edit update destroy] do
+    collection do
+      get :search
+    end
+  end
 
   resources :likes, only: [:index, :create, :destroy]
 

@@ -26,7 +26,6 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("your_result_frame", partial: "profiles/your_result") }
     end
   end
 

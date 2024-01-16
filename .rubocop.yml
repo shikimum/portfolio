@@ -17,3 +17,5 @@ Metrics/ClassLength:
   Enabled: false
 Style/IfUnlessModifier:
   Enabled: false
+Style/SymbolProc:
+  Enabled: false
