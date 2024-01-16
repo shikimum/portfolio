@@ -32,6 +32,7 @@ gem "dartsass-rails", "~> 0.4.0"
 gem 'draper', '4.0.2'
 gem 'jquery-rails'
 gem 'rails-i18n', '~> 7.0.0'
+gem 'ransack'
 gem 'sassc-rails'
 gem 'sorcery', '~> 0.16.5'
 

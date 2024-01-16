@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index search]
 
   def index
-    @reviews = Review.includes(:user)
-    puts @reviews.inspect
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(distinct: true).includes(:user)
   end
 
   def new
@@ -41,6 +41,13 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.find(params[:id])
     @review.destroy!
     redirect_to reviews_path, success: t('defaults.flash_message.deleted', item: Review.model_name.human), status: :see_other
+  end
+
+  def search
+    @mangas = Manga.where("title like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

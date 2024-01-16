@@ -1,34 +1,38 @@
+<% def ranking_icon(position) %>
+  <% case position %>
+    <% when 1 %>
+      <%= image_tag("gold_icon.png", class: "ranking-icon") %> 
+    <% when 2 %>
+      <%= image_tag("silver_icon.png", class: "ranking-icon") %> 
+    <% when 3 %>
+      <%= image_tag("bronze_icon.png", class: "ranking-icon") %> 
+    <% else %>
+      <%= position %>
+  <% end %>
+<% end %>
+
 <% content_for(:title, t('.title')) %>
+
 <div class="container">
   <div class="position-relative text-center">
     <img src="<%= image_path('ranking.png') %>" alt="Your Image" class="img-fluid">
+    
     <div class="position-absolute top-50 start-50 translate-middle text-center">
       <div class="row">
         <div class="col-12 col-md-10 col-lg-12 mx-auto custom-font text-secondary">
           <h1 class="text-nowrap text-center"><%= t('.title') %></h1>
-          <div class="mb-3">
-            <span class="text-nowrap"><%= image_tag("gold_icon.png") %>xxxxxxxxxxxxxxxxxxxx<i class="bi bi-heart"></i></span>
+          
+          <!-- Ranking List -->
+          <div class="card mt-3">
+            <div class="card-body">
+              <% @ranking.each_with_index do |manga, index| %>
+                  <%= ranking_icon(index + 1) %> <h5 class="card-title"><%= manga.title %></h5>
+              <% end %>
+            </div>
           </div>
-          <div class="mb-3">
-            <span class="text-nowrap"><%= image_tag("silver_icon.png") %>xxxxxxxxxxxxxxxxxxxx<i class="bi bi-heart"></i></span>
-          </div>
-          <div class="mb-3">
-            <span class="text-nowrap"><%= image_tag("blonze_icon.png") %>xxxxxxxxxxxxxxxxxxxx<i class="bi bi-heart"></i></span>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<%# if !Like.exists?(user: current_user, manga_id: @manga.id) %>   <!-- お気に入り未登録の時 -->
-  <%# <%= link_to likes_path(@manga), method: :post, remote: true, class: "like-btn like-manga" do %> %>
-    <%# <i class="bi bi-heart"></i> %>
-    <%# <span>いいね！</span> %>
-  <%# end %>
-<%# else %>    <!-- お気に入り登録済みの時 -->
-  <%# <%= link_to likes_path(@manga), method: :delete, remote: true, class: "like-btn like-manga-delete" do %> %>
-    <%# <i class="bi bi-heart"></i> %>
-    <%# <span>いいね！</span> %>
-  <%# end %>
-<%# end %>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 col-lg-4 offset-lg-2 text-light custom-font mx-auto">
+      <h1><%= t('.title') %></h1>
+      <div class="card mt-3">
+        <div class="card-body">
+          <% if @like_mangas.present? %>
+            <% @like_mangas.each do |like_manga| %>
+              <h5 class="card-title"><%= like_manga.title %></h5>
+            <% end %>
+          <% else %>
+            <p class="text-secondary custom-font" ><%= t('.no_result') %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

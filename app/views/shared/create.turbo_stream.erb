@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "like-button-for-manga-#{@manga.id}" do %>
+  <%= render 'shared/unlike', manga: @manga %>
+<% end %>

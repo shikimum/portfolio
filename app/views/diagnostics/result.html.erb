@@ -37,6 +37,24 @@
     </div>
   </div>
 
+  <div class="d-flex justify-content-center">
+  <!-- X -->
+  <a href="https://twitter.com/share?url=<%= CGI.escape(@user_result_url) %>&text=<%= CGI.escape(@user_result_title) %>&hashtags=診断結果&tw_p=tweetbutton" target="_blank" class="ms-2">
+    <img src="<%= image_path('x.png') %>" alt="X Image" class="img-fluid">
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share.php?u=<%= CGI.escape(@user_result_url) %>&t=<%= CGI.escape(@user_result_title) %>" target="_blank" class="ms-2">
+    <img src="<%= image_path('facebook.png') %>" alt="Facebook Image" class="img-fluid">
+  </a>
+  
+
+  <!-- Line -->
+  <a href="https://social-plugins.line.me/lineit/share?url=<%= URI.encode_www_form_component(@user_result_url) %>&text=<%= CGI.escape(@user_result_title) %>" class="ms-2">
+    <img src="<%= image_path('line.png') %>" alt="Line Image" class="img-fluid">
+  </a>
+</div>
+
   <div class="d-flex justify-content-center align-items-center">
     <img src="<%= image_path('aroma_bottom.png') %>" alt="Your Image" class="img-fluid">
   </div>

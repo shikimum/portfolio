@@ -16,10 +16,21 @@ class ProfilesController < ApplicationController
 
   def your_result
     # ここでcurrent_userの疲労タイプIDを取得するか、他の方法で適切なIDを取得
-    @fatigue_type_id = current_user&.fatigue_type_id
+    @fatigue_type = current_user&.fatigue_type
 
-    @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
-    @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
+    @mangas = Manga.where(fatigue_type: @fatigue_type)
+    @aromas = Aroma.where(fatigue_type: @fatigue_type)
+
+    @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type.id)
+    @user_result_title = @fatigue_type.name
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def likes
+    @like_mangas = current_user.like_mangas
   end
 
   private
