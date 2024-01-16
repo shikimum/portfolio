@@ -10,7 +10,7 @@ skip_before_action :require_login, only: %i[new create]
       if @user
         redirect_to rankings_path, success: t('user_sessions.create.success')
       else
-        @user = User.new
+        @user = User.new(email: user_login_params[:email])
         flash.now[:danger] = t('user_sessions.create.failure')
         render :new, status: :unprocessable_entity
       end

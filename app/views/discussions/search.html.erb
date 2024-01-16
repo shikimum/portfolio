@@ -1,5 +1,5 @@
 <% @discussions.each do |discussion| %>
-  <li class="w-80 flex items-center gap-x-3.5 py-2 px-3 text-dark dark:text-gray-400 dark:hover:bg-blue-200 dark:hover:text-gray-300" role="option" data-autocomplete-value="<%= discussion.title %>" data-autocomplete-label="<%= discussion.title.gsub(/[\r\n]/, ' ') %>">
+  <div class="w-80 flex items-center gap-x-3.5 py-2 px-3 text-dark dark:text-gray-400 dark:hover:bg-blue-200 dark:hover:text-gray-300" role="option" data-autocomplete-value="<%= discussion.title %>" data-autocomplete-label="<%= discussion.title.gsub(/[\r\n]/, ' ') %>">
     <%= discussion.title %>
-  </li>
+  </div>
 <% end %>
