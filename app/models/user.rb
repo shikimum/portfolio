@@ -34,3 +34,18 @@ class User < ApplicationRecord
     id == object&.user_id
   end
 end
+
+def self.from_omniauth(auth)
+  user = find_by(email: auth.info.email)
+
+  unless user
+    user = create(
+      email: auth.info.email,
+      password: SecureRandom.hex(10) # ランダムなパスワードを生成
+    )
+  end
+
+  user.authentications.create(provider: auth.provider, uid: auth.uid)
+
+  user
+end
