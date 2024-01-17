@@ -83,6 +83,7 @@ ja:
     edit: 編集
     create: 作成
     delete_confirm: 削除しますか？
+    password_reset: パスワードリセット
     flash_message_updated: 更新されました
     flash_message_not_updated: 更新されませんでした
     flash_message:
@@ -91,3 +92,13 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
