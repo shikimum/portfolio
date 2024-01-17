@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[edit update change_email update_email]
 
   def edit; end
 
@@ -13,6 +13,19 @@ class ProfilesController < ApplicationController
   end
 
   def show; end
+
+  def change_email
+    @user = current_user
+  end
+
+  def update_email
+    if @user.valid_password?(params[:user][:password]) && @user.update(email: params[:user][:email])
+      redirect_to profile_path, success: t('defaults.flash_message_email_updated')
+    else
+      flash.now['danger'] = t('defaults.flash_message_email_not_updated')
+      render :change_email, status: :unprocessable_entity
+    end
+  end
 
   def your_result
     # ここでcurrent_userの疲労タイプIDを取得するか、他の方法で適切なIDを取得
@@ -40,6 +53,6 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :users_name)
+    params.require(:user).permit(:email, :users_name, :password)
   end
 end

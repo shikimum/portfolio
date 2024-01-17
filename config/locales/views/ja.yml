@@ -36,7 +36,8 @@ ja:
     likes:
       title: お気に入り一覧
       no_result: お気に入りがありません。
-    change_email: メールアドレス変更
+    change_email:
+      title: メールアドレス変更
   rankings:
     index:
       title: ランキング
@@ -84,6 +85,7 @@ ja:
     create: 作成
     delete_confirm: 削除しますか？
     password_reset: パスワードリセット
+    change_email: メールアドレス変更
     flash_message_updated: 更新されました
     flash_message_not_updated: 更新されませんでした
     flash_message:
@@ -92,6 +94,8 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
+    flash_message_email_updated: メールアドレスを変更しました
+    flash_message_email_not_updated: メールアドレスが変更されませんでした
   password_resets:
     new:
       title: パスワードリセット申請
