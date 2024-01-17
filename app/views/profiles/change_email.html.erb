@@ -1,0 +1,20 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+    <div class="col-9 col-md-10 col-lg-4 mx-auto custom-font text-secondary">
+      <h1><%= t('.title') %></h1>
+      <%= form_with model: @user, url: update_email_profile_path, method: :put do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="mb-3">
+          <strong><%= f.label :email, class: "form-label" %></strong>
+          <%= f.email_field :email, class: "form-control text-secondary" %>
+        </div>
+        <div class="mb-3">
+          <strong><%= f.label :password, class: "form-label" %></strong>
+          <%= f.password_field :password, class: "form-control text-secondary" %>
+        </div>
+        <%= f.submit class: "btn btn-light text-secondary mb-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>

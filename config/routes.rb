@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     collection do
       get 'your_result'
       get :likes
+      get 'change_email', to: 'profiles#change_email'
+      put 'update_email', to: 'profiles#update_email'
     end
   end
   resources :likes, only: [:create, :destroy]
