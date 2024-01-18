@@ -96,6 +96,7 @@ ja:
       deleted: "%{item}を削除しました"
     flash_message_email_updated: メールアドレスを変更しました
     flash_message_email_not_updated: メールアドレスが変更されませんでした
+    line_message: LINE通知設定
   password_resets:
     new:
       title: パスワードリセット申請

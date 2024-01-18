@@ -41,10 +41,7 @@ gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 
-gem 'omniauth-line'
-gem 'omniauth-rails_csrf_protection'
-gem 'dotenv-rails'
-
+gem 'typhoeus'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
