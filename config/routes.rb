@@ -44,4 +44,7 @@ Rails.application.routes.draw do
 
   get '/privacy_policy', to: 'static_pages#privacy_policy'
   get '/terms_of_service', to: 'static_pages#terms_of_service'
+
+  get 'line_login_api/login', to: 'line_login_api#login'
+  get 'line_login_api/callback', to: 'line_login_api#callback'
 end

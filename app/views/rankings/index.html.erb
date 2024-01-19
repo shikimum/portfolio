@@ -26,7 +26,7 @@
           <div class="card mt-3">
             <div class="card-body">
               <% @ranking.each_with_index do |manga, index| %>
-                  <%= ranking_icon(index + 1) %> <h5 class="card-title"><%= manga.title %></h5>
+                  <%= ranking_icon(index + 1) %> <h5 class="card-title"><%= manga.title %><%= render 'shared/like_button', manga: manga %></h5>
               <% end %>
             </div>
           </div>

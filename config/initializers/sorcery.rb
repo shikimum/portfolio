@@ -8,10 +8,6 @@ Rails.application.config.sorcery.submodules = [:reset_password]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
-  config.omniauth_providers = %i[line]
-  config.line.key = 'LINE_CHANNEL_ID'
-  config.line.secret = 'LINE_CHANNEL_SECRET'
-  config.line.callback_url = 'https://your-callback-url.com/auth/line/callback'
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
