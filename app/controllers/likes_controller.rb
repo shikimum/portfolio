@@ -2,12 +2,19 @@ class LikesController < ApplicationController
   def create
     @manga = Manga.find(params[:manga_id])
     current_user.like(@manga)
-    redirect_to your_result_profile_path, status: :see_other
+    respond_to do |format|
+      format.html { redirect_to your_result_profile_path, status: :see_other }
+      format.turbo_stream
+    end
   end
 
   def destroy
-    @manga = current_user.like_mangas.find_by(params[:manga_id])
+    manga_id = Like.find(params[:id]).manga_id
+    @manga = Manga.find(manga_id)
     current_user.unlike(@manga)
-    redirect_to your_result_profile_path, status: :see_other
+    respond_to do |format|
+      format.html { redirect_to your_result_profile_path, status: :see_other }
+      format.turbo_stream
+    end
   end
 end

@@ -86,6 +86,7 @@ ja:
     delete_confirm: 削除しますか？
     password_reset: パスワードリセット
     change_email: メールアドレス変更
+    restart: 診断をやり直す
     flash_message_updated: 更新されました
     flash_message_not_updated: 更新されませんでした
     flash_message:
