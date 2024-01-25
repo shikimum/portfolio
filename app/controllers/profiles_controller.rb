@@ -31,12 +31,13 @@ class ProfilesController < ApplicationController
     # ここでcurrent_userの疲労タイプIDを取得するか、他の方法で適切なIDを取得
     @fatigue_type = current_user&.fatigue_type
 
-    @mangas = Manga.where(fatigue_type: @fatigue_type)
-    @aromas = Aroma.where(fatigue_type: @fatigue_type)
+    if @fatigue_type.present?
+      @mangas = Manga.where(fatigue_type: @fatigue_type)
+      @aromas = Aroma.where(fatigue_type: @fatigue_type)
 
-    @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type.id)
-    @user_result_title = @fatigue_type.name
-
+      @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type.id)
+      @user_result_title = @fatigue_type.name
+    end
     respond_to do |format|
       format.html
     end

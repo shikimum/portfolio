@@ -30,6 +30,7 @@ gem "jbuilder"
 gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'config'
 gem "dartsass-rails", "~> 0.4.0"
+gem 'dotenv-rails'
 gem 'draper', '4.0.2'
 gem 'jquery-rails'
 gem 'rails-i18n', '~> 7.0.0'

@@ -28,15 +28,12 @@ class LineLoginApiController < ApplicationController
     if params[:state] == session[:state]
 
       line_user_id = get_line_user_id(params[:code])
-      user = User.find_or_initialize_by(line_user_id: line_user_id)
 
-      if user.save
-        session[:user_id] = user.id
-        redirect_to after_login_path, notice: 'ログインしました'
+      if current_user.update(line_user_id: line_user_id)
+        redirect_to likes_profile_path, notice: '連携に成功しました'
       else
-        redirect_to root_path, notice: 'ログインに失敗しました'
+        redirect_to likes_profile_path, notice: '連携に失敗しました'
       end
-
     else
       redirect_to root_path, notice: '不正なアクセスです'
     end
