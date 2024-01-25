@@ -30,7 +30,7 @@ class LineLoginApiController < ApplicationController
       line_user_id = get_line_user_id(params[:code])
 
       if current_user.update(line_user_id: line_user_id)
-        redirect_to likes_profile_path, notice: '連携に成功しました'
+        redirect_to likes_profile_path, success: t('line_user_id.create.success')
       else
         redirect_to likes_profile_path, notice: '連携に失敗しました'
       end

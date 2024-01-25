@@ -108,3 +108,6 @@ ja:
       success: パスワードリセット手順を送信しました
     update:
       success: パスワードを変更しました
+  line_user_id
+      callback:
+        success: 連携に成功しました
