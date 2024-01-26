@@ -30,9 +30,9 @@ class LineLoginApiController < ApplicationController
       line_user_id = get_line_user_id(params[:code])
 
       if current_user.update(line_user_id: line_user_id)
-        redirect_to likes_profile_path, success: t('line_user_id.create.success')
+        redirect_to likes_profile_path, success: t('line_login_api.callback.create.success')
       else
-        redirect_to likes_profile_path, notice: '連携に失敗しました'
+        redirect_to likes_profile_path, flash.now[:danger] = t('line_login_api.callback.create.failure')
       end
     else
       redirect_to root_path, notice: '不正なアクセスです'
