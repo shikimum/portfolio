@@ -107,6 +107,10 @@ GEM
       reline (>= 0.3.1)
     deep_merge (1.2.2)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     draper (4.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -402,6 +406,7 @@ DEPENDENCIES
   config
   dartsass-rails (~> 0.4.0)
   debug
+  dotenv-rails
   draper (= 4.0.2)
   factory_bot_rails
   faker

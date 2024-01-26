@@ -13,10 +13,10 @@ class LineLoginApiController < ApplicationController
 
     base_authorization_url = 'https://access.line.me/oauth2/v2.1/authorize'
     response_type = 'code'
-    client_id = ENV['LINE_LOGIN_CHANNEL_ID'] #本番環境では環境変数などに保管する
+    client_id = ENV['LINE_LOGIN_CHANNEL_ID'] # 本番環境では環境変数などに保管する
     redirect_uri = CGI.escape(line_login_api_callback_url)
     state = session[:state]
-    scope = 'profile%20openid' #ユーザーに付与を依頼する権限
+    scope = 'profile%20openid' # ユーザーに付与を依頼する権限
 
     authorization_url = "#{base_authorization_url}?response_type=#{response_type}&client_id=#{client_id}&redirect_uri=#{redirect_uri}&state=#{state}&scope=#{scope}"
 
@@ -28,15 +28,12 @@ class LineLoginApiController < ApplicationController
     if params[:state] == session[:state]
 
       line_user_id = get_line_user_id(params[:code])
-      user = User.find_or_initialize_by(line_user_id: line_user_id)
 
-      if user.save
-        session[:user_id] = user.id
-        redirect_to after_login_path, notice: 'ログインしました'
+      if current_user.update(line_user_id: line_user_id)
+        redirect_to likes_profile_path, success: t('line_login_api.callback.create.success')
       else
-        redirect_to root_path, notice: 'ログインに失敗しました'
+        redirect_to likes_profile_path, flash.now[:danger] = t('line_login_api.callback.create.failure')
       end
-
     else
       redirect_to root_path, notice: '不正なアクセスです'
     end

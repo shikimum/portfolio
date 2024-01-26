@@ -108,3 +108,8 @@ ja:
       success: パスワードリセット手順を送信しました
     update:
       success: パスワードを変更しました
+  line_login_api:
+    callback:
+      create:
+        success: "LINEユーザーIDの連携に成功しました。"
+        failure: "LINEユーザーIDの連携に失敗しました。"

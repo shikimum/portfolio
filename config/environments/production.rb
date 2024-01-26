@@ -67,13 +67,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options   = { host: 'https://comic-health-df775b637c30.herokuapp.com' }
   ActionMailer::Base.smtp_settings           = {
-      address:              ENV["MAILERTOGO_SMTP_HOST"],
-      port:                  ENV["MAILERTOGO_SMTP_PORT"],
-      authentication:       :plain,
-      user_name:            ENV['MAILERTOGO_SMTP_USER'],
-      password:             ENV['MAILERTOGO_SMTP_PASSWORD'],
-      domain:               'heroku.com',
-      enable_starttls_auto: true
+    address: ENV["MAILERTOGO_SMTP_HOST"],
+    port: ENV["MAILERTOGO_SMTP_PORT"],
+    authentication: :plain,
+    user_name: ENV['MAILERTOGO_SMTP_USER'],
+    password: ENV['MAILERTOGO_SMTP_PASSWORD'],
+    domain: 'heroku.com',
+    enable_starttls_auto: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
