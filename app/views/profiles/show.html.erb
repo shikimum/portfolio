@@ -18,6 +18,23 @@
           <div class="mb-3">
             <%= current_user.email %>
           </div>
+
+          <% if current_user.line_user_id.present? %>
+          <div>
+            <strong>LINEユーザーID</strong>
+          </div>
+          <div class="mb-3">
+            <span class="text-success">連携済み</span>
+          </div>
+        <% else %>
+          <div class="text-danger">
+            <strong>LINEユーザーID</strong>
+          </div>
+          <div class="mb-3">
+            未連携
+          </div>
+        <% end %>
+
           <div class='text-right'>
             <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-light float-right text-secondary' %>
           </div>
