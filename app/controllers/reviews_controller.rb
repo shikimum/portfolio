@@ -17,9 +17,9 @@ class ReviewsController < ApplicationController
     if @review.save
       like_users = manga.like_users
       text = "#{manga.title}の新しいレビューが更新されました。"
-      job = PushLineJob.new
       like_users.each do |like_user|
         if like_user.line_user_id.present?
+          PushLineJob.perform_later(user_line_id: like_user.line_user_id, text: text)
           job.perform(line_user_id: like_user.line_user_id, text: text)
         end
       end
