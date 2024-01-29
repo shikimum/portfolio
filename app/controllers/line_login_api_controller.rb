@@ -48,7 +48,6 @@ class LineLoginApiController < ApplicationController
     line_user_id_token = get_line_user_id_token(code)
 
     if line_user_id_token.present?
-
       url = 'https://api.line.me/oauth2/v2.1/verify'
       options = {
         body: {
