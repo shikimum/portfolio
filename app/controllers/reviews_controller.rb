@@ -19,8 +19,7 @@ class ReviewsController < ApplicationController
       text = "#{manga.title}の新しいレビューが更新されました。"
       like_users.each do |like_user|
         if like_user.line_user_id.present?
-          PushLineJob.perform_later(user_line_id: like_user.line_user_id, text: text)
-          job.perform(line_user_id: like_user.line_user_id, text: text)
+          PushLineJob.perform_later(line_user_id: like_user.line_user_id, text: text)
         end
       end
       redirect_to reviews_path, success: t('defaults.flash_message.created', item: Review.model_name.human)
