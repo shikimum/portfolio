@@ -66,7 +66,7 @@ RSpec.describe "Diagnostics", type: :request do
     end
     context "ユーザーがログインしている場合" do
       let(:user) { create(:user, password: password, password_confirmation: password) }
-      let(:password) {"kkkkkk"}
+      let(:password) { "kkkkkk" }
       let(:your_fatigue_type) { FatigueType.find_by(name: "ホルモンバランスの乱れ") }
       before do
         login_user(user, password, login_path)
