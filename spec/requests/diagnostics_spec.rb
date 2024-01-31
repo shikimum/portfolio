@@ -64,5 +64,18 @@ RSpec.describe "Diagnostics", type: :request do
         expect(response).to redirect_to(result_diagnostics_path(your_fatigue_id: your_fatigue_type.id))
       end
     end
+    context "ユーザーがログインしている場合" do
+      let(:user) { create(:user, password: password, password_confirmation: password) }
+      let(:password) {"kkkkkk"}
+      let(:your_fatigue_type) { FatigueType.find_by(name: "ホルモンバランスの乱れ") }
+      before do
+        login_user(user, password, login_path)
+      end
+      it "選ばれたタイプがユーザーと紐づけられる" do
+        post diagnostics_path, params: { answers: { "1" => "false", "2" => "false", "3" => "true", "4" => "false", "5" => "true", "6" => "false", "7" => "false", "8" => "true", "9" => "false", "10" => "false" } }
+        user.reload # ユーザーオブジェクトを再読み込みして最新の情報を取得
+        expect(user.fatigue_type_id).to eq(your_fatigue_type.id)
+      end
+    end
   end
 end
