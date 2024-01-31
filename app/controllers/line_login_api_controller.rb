@@ -60,11 +60,7 @@ class LineLoginApiController < ApplicationController
 
       if response.code == 200
         JSON.parse(response.body)['sub']
-      else
-        nil
       end
-    else
-      nil
     end
   end
 
