@@ -5,7 +5,7 @@
       <%= form_with model: @review, url: reviews_path, class: "new_review" do |f| %>
         <div class="mb-3">
           <%= f.label :manga_id, '漫画タイトルを選択してください' %>
-          <%= f.select :manga_id, options_for_select(Manga.pluck(:title, :id)) %>
+          <%= f.select :manga_id, options_for_select(Manga.where.not(id: 20).pluck(:title, :id)) %>
         </div>
         <div class="mb-3">
           <%= f.label :body %>

@@ -16,10 +16,10 @@ class PushLineJob < ApplicationJob
   private
 
   def line_client
-    Line::Bot::Client.new { |config|
+    Line::Bot::Client.new do |config|
       config.channel_id = ENV.fetch("LINE_MESSAGE_CHANNEL_ID")
       config.channel_secret = ENV.fetch("LIEN_MESSAGE_CHANNEL_SECRET")
       config.channel_token = ENV.fetch("LIEN_MESSAGE_CHANNEL_TOKEN")
-    }
+    end
   end
 end
