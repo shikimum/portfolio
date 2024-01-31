@@ -6,6 +6,9 @@ skip_before_action :require_login, only: %i[new create]
   end
 
   def create
+    puts "---params---"
+    puts params.inspect
+    puts "---"
     @user = login(user_login_params[:email], user_login_params[:password])
       if @user
         redirect_to rankings_path, success: t('user_sessions.create.success')

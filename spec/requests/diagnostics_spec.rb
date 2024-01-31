@@ -69,7 +69,7 @@ RSpec.describe "Diagnostics", type: :request do
       let(:password) { "kkkkkk" }
       let(:your_fatigue_type) { FatigueType.find_by(name: "ホルモンバランスの乱れ") }
       before do
-        login_user(user, password, login_path)
+        post login_path, params: { user: { email: user.email, password: password } }
       end
       it "選ばれたタイプがユーザーと紐づけられる" do
         post diagnostics_path, params: { answers: { "1" => "false", "2" => "false", "3" => "true", "4" => "false", "5" => "true", "6" => "false", "7" => "false", "8" => "true", "9" => "false", "10" => "false" } }
