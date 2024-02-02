@@ -60,6 +60,7 @@ document.addEventListener("turbo:load", function() {
   var questions = document.querySelectorAll('.question_box');
   var backButton = document.getElementById("question_return");
   var submitButton = document.getElementById("question_submit");
+  submitButton.style.display = 'none';
   var currentQuestionIndex = 0;
 
   questions.forEach(function(question, index) {
@@ -97,6 +98,22 @@ document.addEventListener("turbo:load", function() {
         }
       }
     });
+  });
+
+  backButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    var currentQuestion = questions[currentQuestionIndex];
+    var previousQuestion = questions[currentQuestionIndex - 1];
+
+    if (previousQuestion) {
+      currentQuestion.style.display = 'none';
+      previousQuestion.style.display = 'block';
+      currentQuestionIndex--;
+    }
+
+    // 質問が最初のものでなければ「前へ」ボタンを表示
+    backButton.style.display = (currentQuestionIndex > 0) ? 'block' : 'none';
+
   });
 });
 
