@@ -83,20 +83,9 @@ document.addEventListener("turbo:load", function() {
 
         // 質問が最初のものでなければ「前へ」ボタンを表示
         backButton.style.display = (currentQuestionIndex > 0) ? 'block' : 'none';
-
-        // チェックボックスが全て選択された場合に submit_button を表示
-        var allRadioButtons = document.querySelectorAll('input[type="radio"]');
-        var allRadioChecked = true;
-        allRadioButtons.forEach(function(radio) {
-          if (!radio.checked) {
-            allRadioChecked = false;
-          }
-        });
-
-        if (allRadioChecked) {
-          submitButton.style.display = 'block';
-        }
-      }
+      } else {
+        submitButton.style.display = 'block'
+      };
     });
   });
 
@@ -113,9 +102,7 @@ document.addEventListener("turbo:load", function() {
 
     // 質問が最初のものでなければ「前へ」ボタンを表示
     backButton.style.display = (currentQuestionIndex > 0) ? 'block' : 'none';
-
   });
 });
 
 </script>
-
