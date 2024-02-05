@@ -34,6 +34,8 @@
           </div>
         <% end %>
 
+        <button type="button" id="question_return" class="btn btn-light text-secondary mb-3">前へ</button>
+
         <%= form.submit t('helpers.submit.result'), id: "question_submit", class: "btn btn-light text-secondary mb-3" %>
       <% end %>
     </div>
@@ -42,51 +44,65 @@
 
 <!-- JavaScriptの直接埋め込み -->
 <script>
-  document.addEventListener("turbo:load", function() {
-    var startContent = document.getElementById("start_content");
-    var startLinkContainer = document.getElementById("start_link_container");
-    var diagnosticsContainer = document.getElementById("diagnostics_container");
+document.addEventListener("turbo:load", function() {
+  var startContent = document.getElementById("start_content");
+  var startLinkContainer = document.getElementById("start_link_container");
+  var diagnosticsContainer = document.getElementById("diagnostics_container");
 
-    startLinkContainer.addEventListener('click', function(event) {
-      event.preventDefault();
-      startContent.style.display = 'none';  // <h1>質問は合計で10問です。</h1>を非表示にする
-      startLinkContainer.style.display = 'none';
-      diagnosticsContainer.style.display = 'block';
-    });
+  startLinkContainer.addEventListener('click', function(event) {
+    event.preventDefault();
+    startContent.style.display = 'none';
+    startLinkContainer.style.display = 'none';
+    diagnosticsContainer.style.display = 'block';
+  });
 
-    // 以下の JavaScript コードを追加
-    var questions = document.querySelectorAll('.question_box');
-    for (var i = 1; i < questions.length; i++) {
-      questions[i].style.display = 'none';
+  // 以下の JavaScript コードを追加
+  var questions = document.querySelectorAll('.question_box');
+  var backButton = document.getElementById("question_return");
+  var submitButton = document.getElementById("question_submit");
+  submitButton.style.display = 'none';
+  var currentQuestionIndex = 0;
+
+  questions.forEach(function(question, index) {
+    if (index > 0) {
+      question.style.display = 'none';
     }
+  });
 
-    var submit_button = document.getElementById("question_submit");
-    submit_button.style.display = 'none';
+  backButton.style.display = 'none';
 
-    document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-      radio.addEventListener('change', function() {
-        var currentQuestion = this.closest('.question_box');
-        var nextQuestion = currentQuestion.nextElementSibling;
+  document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var currentQuestion = questions[currentQuestionIndex];
+      var nextQuestion = questions[currentQuestionIndex + 1];
 
-        if (nextQuestion) {
-          currentQuestion.style.display = 'none';
-          nextQuestion.style.display = 'block';
-        }
+      if (nextQuestion) {
+        currentQuestion.style.display = 'none';
+        nextQuestion.style.display = 'block';
+        currentQuestionIndex++;
 
-        // チェックボックスが全て選択された場合に submit_button を表示
-        var allRadioButtons = document.querySelectorAll('input[type="radio"]');
-        var allRadioChecked = true;
-        allRadioButtons.forEach(function(radio) {
-          if (!radio.checked) {
-            allRadioChecked = false;
-          }
-        });
-
-        if (allRadioChecked) {
-          submit_button.style.display = 'block';
-        }
-      });
+        // 質問が最初のものでなければ「前へ」ボタンを表示
+        backButton.style.display = (currentQuestionIndex > 0) ? 'block' : 'none';
+      } else {
+        submitButton.style.display = 'block'
+      };
     });
   });
-</script>
 
+  backButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    var currentQuestion = questions[currentQuestionIndex];
+    var previousQuestion = questions[currentQuestionIndex - 1];
+
+    if (previousQuestion) {
+      currentQuestion.style.display = 'none';
+      previousQuestion.style.display = 'block';
+      currentQuestionIndex--;
+    }
+
+    // 質問が最初のものでなければ「前へ」ボタンを表示
+    backButton.style.display = (currentQuestionIndex > 0) ? 'block' : 'none';
+  });
+});
+
+</script>
