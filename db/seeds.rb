@@ -47,7 +47,7 @@ UserAnswer.find_or_create_by!(question_id: 2, answer: false, fatigue_type_id: 3,
 UserAnswer.find_or_create_by!(question_id: 2, answer: false, fatigue_type_id: 4, point: 1)
 UserAnswer.find_or_create_by!(question_id: 2, answer: false, fatigue_type_id: 5, point: 0)
 UserAnswer.find_or_create_by!(question_id: 2, answer: false, fatigue_type_id: 6, point: 0)
-UserAnswer.find_or_create_by!(question_id: 3, answer: true, fatigue_type_id: 1, point: 4)
+UserAnswer.find_or_create_by!(question_id: 3, answer: true, fatigue_type_id: 1, point: 5)
 UserAnswer.find_or_create_by!(question_id: 3, answer: true, fatigue_type_id: 2, point: 3)
 UserAnswer.find_or_create_by!(question_id: 3, answer: true, fatigue_type_id: 3, point: 0)
 UserAnswer.find_or_create_by!(question_id: 3, answer: true, fatigue_type_id: 4, point: 0)
@@ -61,7 +61,7 @@ UserAnswer.find_or_create_by!(question_id: 3, answer: false, fatigue_type_id: 5,
 UserAnswer.find_or_create_by!(question_id: 3, answer: false, fatigue_type_id: 6, point: 1)
 UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 1, point: 0)
 UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 2, point: 0)
-UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 3, point: 3)
+UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 3, point: 4)
 UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 4, point: 2)
 UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 5, point: 0)
 UserAnswer.find_or_create_by!(question_id: 4, answer: true, fatigue_type_id: 6, point: 1)
@@ -171,7 +171,3 @@ Manga.find_or_create_by!(fatigue_type_id: 6, title: "リエゾン-こどもの�
 Manga.find_or_create_by!(fatigue_type_id: 6, title: "コウノドリ")
 Manga.find_or_create_by!(fatigue_type_id: 6, title: "ゴールデンカムイ")
 Manga.find_or_create_by!(fatigue_type_id: 6, title: "幸せは食べて寝て待て")
-
-puts "--- Manga.all ---"
-puts Manga.all.inspect
-puts "---"
