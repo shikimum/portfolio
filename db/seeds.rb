@@ -171,3 +171,7 @@ Manga.find_or_create_by!(fatigue_type_id: 6, title: "リエゾン-こどもの�
 Manga.find_or_create_by!(fatigue_type_id: 6, title: "コウノドリ")
 Manga.find_or_create_by!(fatigue_type_id: 6, title: "ゴールデンカムイ")
 Manga.find_or_create_by!(fatigue_type_id: 6, title: "幸せは食べて寝て待て")
+
+puts "--- Manga.all ---"
+puts Manga.all.inspect
+puts "---"
