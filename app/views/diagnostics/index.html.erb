@@ -72,7 +72,7 @@ document.addEventListener("turbo:load", function() {
   backButton.style.display = 'none';
 
   document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-    radio.addEventListener('change', function() {
+    radio.addEventListener('click', function() {
       var currentQuestion = questions[currentQuestionIndex];
       var nextQuestion = questions[currentQuestionIndex + 1];
 
