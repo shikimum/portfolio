@@ -50,6 +50,17 @@ class DiagnosticsController < ApplicationController
     @your_fatigue = FatigueType.find(@fatigue_type_id)
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
+    @mangas.each do |manga|
+      uri = URI.parse('https://www.googleapis.com')
+      http_client = Net::HTTP.new(uri.host,uri.port)
+      get_request = Net::HTTP::Get.new("/books/v1/volumes?q=#{manga.title}", 'Content-Type' => 'application/json')
+      http_client.use_ssl = true
+      response = http_client.request(get_request)
+      @data = JSON.parse(response.body)
+      puts @data["items"]["volumeInfo"]["industryIdentifiers"]["identifier"]["imageLinks"]["thumbnail"].inspect
+      manga.thumbnail = @data["items"]["volumeInfo"]["industryIdentifiers"]["identifier"]["imageLinks"]["thumbnail"]
+    end
+
     @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
 
     @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type_id)
