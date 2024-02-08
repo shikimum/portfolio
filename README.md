@@ -97,11 +97,11 @@ Figma： https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?ty
 
 - 通知：お気に入りした漫画に対してレビューが更新された際にユーザーに通知します。
 
--漫画サムネイルの表示
+- 漫画サムネイルの表示
 
 ## 機能の実装方針予定
 - サーバーサイドはRuby on Railsを使用し、フロントエンドは非同期通信を活用します。
 - SNSシェア機能：X、instagram、Facebook
 - 通知：お気に入りの漫画に新しいレビューが投稿された場合に、LINE Messaging API SDK for Rubyを使用してユーザーに通知が届く仕組みです。
 - 検索機能：Stimulus Autocomplete（Rails7 ）
-- -漫画サムネイルの表示: Google Book Apiを使用して、サムネイルを表示させます。
+- 漫画サムネイルの表示: Google Book Apiを使用して、サムネイルを表示させます。
