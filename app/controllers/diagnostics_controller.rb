@@ -57,9 +57,17 @@ class DiagnosticsController < ApplicationController
       http_client.use_ssl = true
       response = http_client.request(get_request)
       @data = JSON.parse(response.body)
-      puts @data["items"]["volumeInfo"]["industryIdentifiers"]["identifier"]["imageLinks"]["thumbnail"].inspect
-      manga.thumbnail = @data["items"]["volumeInfo"]["industryIdentifiers"]["identifier"]["imageLinks"]["thumbnail"]
+      puts @data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"].inspect
+      manga.thumbnail = @data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
     end
+
+    #  thumbnail = @data.dig("items", 0, "volumeInfo", "imageLinks", "thumbnail")
+    #  manga.thumbnail = thumbnail if thumbnail
+
+    #rescue StandardError => e
+    #  puts "API communication error: #{e.message}"
+    #  manga.thumbnail = "default_thumbnail_url"
+  end
 
     @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
 
