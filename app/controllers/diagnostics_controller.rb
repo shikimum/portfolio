@@ -51,23 +51,20 @@ class DiagnosticsController < ApplicationController
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
     @mangas.each do |manga|
-      uri = URI.parse('https://www.googleapis.com')
-      http_client = Net::HTTP.new(uri.host,uri.port)
-      get_request = Net::HTTP::Get.new("/books/v1/volumes?q=#{manga.title}", 'Content-Type' => 'application/json')
+      uri = URI.parse('https://www.googleapis.comsss')
+      http_client = Net::HTTP.new(uri.host, uri.port)
+      get_request = Net::HTTP::Get.new("/books/v1/volumes?q=#{manga.title}漫画1巻", 'Content-Type' => 'application/json')
+      # https://www.googleapis.com/books/v1/volumes/:id
       http_client.use_ssl = true
       response = http_client.request(get_request)
       @data = JSON.parse(response.body)
-      puts @data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"].inspect
-      manga.thumbnail = @data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+      puts @data.inspect
+      manga.thumbnail = @data.dig("items", 0, "volumeInfo", "imageLinks", "thumbnail")
+      #manga.buylink
+    rescue StandardError => e
+      logger.error("google apiでエラーが起こりました")
+      logger.error(e.message)
     end
-
-    #  thumbnail = @data.dig("items", 0, "volumeInfo", "imageLinks", "thumbnail")
-    #  manga.thumbnail = thumbnail if thumbnail
-
-    #rescue StandardError => e
-    #  puts "API communication error: #{e.message}"
-    #  manga.thumbnail = "default_thumbnail_url"
-  end
 
     @aromas = Aroma.where(fatigue_type_id: @fatigue_type_id)
 

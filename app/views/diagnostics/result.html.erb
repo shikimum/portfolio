@@ -20,7 +20,9 @@
             <ul>
               <% @mangas.each do |manga| %>
                 <li><strong><%= manga.title %></strong></li>
-                <%= image_tag(manga.thumbnail) %>
+                <% if manga.thumbnail.present? %>
+                  <%= image_tag(manga.thumbnail) %>
+                <% end %>
               <% end %>
             </ul>
 
