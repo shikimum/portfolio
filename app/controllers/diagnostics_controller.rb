@@ -60,7 +60,7 @@ class DiagnosticsController < ApplicationController
       @data = JSON.parse(response.body)
       puts @data.inspect
       manga.thumbnail = @data.dig("items", 0, "volumeInfo", "imageLinks", "thumbnail")
-      #manga.buylink
+      # manga.buylink
     rescue StandardError => e
       logger.error("google apiでエラーが起こりました")
       logger.error(e.message)
