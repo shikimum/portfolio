@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_08_001017) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_09_040945) do
   create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "fatigue_type_id", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_08_001017) do
     t.bigint "fatigue_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "isbn"
+    t.string "google_book_api_id"
     t.index ["fatigue_type_id"], name: "index_mangas_on_fatigue_type_id"
   end
 

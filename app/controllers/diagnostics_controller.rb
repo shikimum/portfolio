@@ -51,16 +51,16 @@ class DiagnosticsController < ApplicationController
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
     @mangas.each do |manga|
-      uri = URI.parse('https://www.googleapis.comsss')
+      uri = URI.parse('https://www.googleapis.com')
       http_client = Net::HTTP.new(uri.host, uri.port)
-      get_request = Net::HTTP::Get.new("/books/v1/volumes?q=#{manga.title}漫画1巻", 'Content-Type' => 'application/json')
+      get_request = Net::HTTP::Get.new("/books/v1/volumes/#{manga.google_book_api_id}", 'Content-Type' => 'application/json')
       # https://www.googleapis.com/books/v1/volumes/:id
       http_client.use_ssl = true
       response = http_client.request(get_request)
       @data = JSON.parse(response.body)
-      puts @data.inspect
+      # puts @data["items"][0]["saleInfo"]["buyLink"].inspect
       manga.thumbnail = @data.dig("items", 0, "volumeInfo", "imageLinks", "thumbnail")
-      # manga.buylink
+      # manga.buylink = @data.dig("items", 0, "volumeInfo", "saleInfo", "buyLink")
     rescue StandardError => e
       logger.error("google apiでエラーが起こりました")
       logger.error(e.message)

@@ -23,6 +23,10 @@
                 <% if manga.thumbnail.present? %>
                   <%= image_tag(manga.thumbnail) %>
                 <% end %>
+                <% if manga.buylink.present? %>
+                <%= link_to manga.buylink, class: 'btn btn-light text-secondary mt-3' %>
+                  Buy Now
+                <% end %>
               <% end %>
             </ul>
 
