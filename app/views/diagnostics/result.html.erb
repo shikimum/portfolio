@@ -20,6 +20,14 @@
             <ul>
               <% @mangas.each do |manga| %>
                 <li><strong><%= manga.title %></strong></li>
+                <% if manga.thumbnail.present? %>
+                  <%= image_tag(manga.thumbnail) %>
+                <% end %>
+                <% if manga.buylink.present? %>
+                <div>
+                  <%= link_to "買う", manga.buylink, class: 'btn btn-light float-right text-secondary mt-3', target: :_blank %>
+                </div>
+                <% end %>
               <% end %>
             </ul>
 
