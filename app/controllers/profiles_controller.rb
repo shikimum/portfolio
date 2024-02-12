@@ -33,6 +33,19 @@ class ProfilesController < ApplicationController
 
     if @fatigue_type.present?
       @mangas = Manga.where(fatigue_type: @fatigue_type)
+      @mangas.each do |manga|
+        uri = URI.parse('https://www.googleapis.com')
+        http_client = Net::HTTP.new(uri.host, uri.port)
+        get_request = Net::HTTP::Get.new("/books/v1/volumes/#{manga.google_book_api_id}", 'Content-Type' => 'application/json')
+        http_client.use_ssl = true
+        response = http_client.request(get_request)
+        @data = JSON.parse(response.body)
+        manga.thumbnail = @data.dig("volumeInfo", "imageLinks", "thumbnail")
+        manga.buylink = @data.dig("saleInfo", "buyLink")
+      rescue StandardError => e
+        logger.error("google apiでエラーが起こりました")
+        logger.error(e.message)
+      end
       @aromas = Aroma.where(fatigue_type: @fatigue_type)
 
       @user_result_url = result_diagnostics_url(your_fatigue_id: @fatigue_type.id)

@@ -23,12 +23,12 @@
             <div class="d-flex justify-content-center">
               <div class="form-check form-check-inline">
                 <%= form.radio_button "answers[#{question.id}]", true, class: "form-check-input" %>
-                <h4><%= form.label "answers[#{question.id}]", "Yes", class: "form-check-label mb-3" %></h4>
+                <h4><%= form.label "answers[#{question.id}]_true", "Yes", class: "form-check-label mb-3" %></h4>
               </div>
 
               <div class="form-check form-check-inline">
                 <%= form.radio_button "answers[#{question.id}]", false, class: "form-check-input" %>
-                <h4><%= form.label "answers[#{question.id}]", "No", class: "form-check-label" %></h4>
+                <h4><%= form.label "answers[#{question.id}]_false", "No", class: "form-check-label" %></h4>
               </div>
             </div>
           </div>
