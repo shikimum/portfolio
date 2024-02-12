@@ -58,9 +58,9 @@ class DiagnosticsController < ApplicationController
       http_client.use_ssl = true
       response = http_client.request(get_request)
       @data = JSON.parse(response.body)
-      # puts @data["items"][0]["saleInfo"]["buyLink"].inspect
-      manga.thumbnail = @data.dig("items", 0, "volumeInfo", "imageLinks", "thumbnail")
-      # manga.buylink = @data.dig("items", 0, "volumeInfo", "saleInfo", "buyLink")
+      puts @data.dig("saleInfo", "buyLink").inspect
+      manga.thumbnail = @data.dig("volumeInfo", "imageLinks", "thumbnail")
+      manga.buylink = @data.dig("saleInfo", "buyLink")
     rescue StandardError => e
       logger.error("google apiでエラーが起こりました")
       logger.error(e.message)

@@ -34,23 +34,6 @@
           </div>
         <% end %>
 
-
-        #  <div>
-        #    <%= f.label :yes, for: "yes_option" %>
-        #    <%= f.radio_button :choice, "yes", id: "yes_option" %>
-        #    <span>Yes</span>
-        #  </div>
-        #  
-        #  <div>
-        #    <%= f.label :no, for: "no_option" %>
-        #    <%= f.radio_button :choice, "no", id: "no_option" %>
-        #    <span>No</span>
-        #  </div>
-        #
-        #  <%= f.submit "次へ" %>
-        #<% end %>
-        
-
         <button type="button" id="question_return" class="btn btn-light text-secondary mb-3">前へ</button>
 
         <%= form.submit t('helpers.submit.result'), id: "question_submit", class: "btn btn-light text-secondary mb-3" %>
