@@ -28,6 +28,9 @@
                   <%= link_to "買う", manga.buylink, class: 'btn btn-light float-right text-secondary mt-3', target: :_blank %>
                 </div>
                 <% end %>
+                <% if manga.description.present? %>
+                  <%= manga.description %>
+                <% end %>
               <% end %>
             </ul>
 
