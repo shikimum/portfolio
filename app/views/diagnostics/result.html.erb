@@ -19,7 +19,7 @@
             <h2>おすすめの漫画一覧</h2>
             <ul>
               <% @mangas.each do |manga| %>
-                <li><strong><%= manga.title %></strong></li>
+                <li><h4><strong><%= manga.title %></strong></h4></li>
                 <% if manga.thumbnail.present? %>
                   <%= image_tag(manga.thumbnail) %>
                 <% end %>
@@ -34,10 +34,13 @@
               <% end %>
             </ul>
 
-            <h2>おすすめのアロマ</h2>
+            <h2 class="mb-3">より効果的な処方は？</h2>
+            <div>アロマは様々な身体的・心理的不調に効果的だと研究結果で明らかにされています。</div>
+            <div>漫画を読みながら、アロマを焚くことでより高い効果が期待されます。</div>
             <ul>
               <% @aromas.each do |aroma| %>
-                <li><strong><%= aroma.name %></strong></li>
+                <li><h4><strong><%= aroma.name %></strong></h4></li>
+                <%= aroma.description %>
               <% end %>
             </ul>
           </div>

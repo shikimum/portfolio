@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_09_040945) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_13_040200) do
   create_table "aromas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "fatigue_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["fatigue_type_id"], name: "index_aromas_on_fatigue_type_id"
   end
 
