@@ -1,5 +1,5 @@
 class Manga < ApplicationRecord
-  attr_accessor :thumbnail, :buylink
+  attr_accessor :thumbnail, :buylink, :description
 
   belongs_to :fatigue_type
   has_many :reviews, dependent: :destroy

@@ -43,6 +43,7 @@ class DiagnosticsController < ApplicationController
       current_user.save!
     end
     redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
+    # session[:your_fatigue_id] = @your_fatigue_id
   end
 
   def result
@@ -59,6 +60,7 @@ class DiagnosticsController < ApplicationController
       @data = JSON.parse(response.body)
       manga.thumbnail = @data.dig("volumeInfo", "imageLinks", "thumbnail")
       manga.buylink = @data.dig("saleInfo", "buyLink")
+      manga.description = @data.dig("volumeInfo", "description")
     rescue StandardError => e
       logger.error("google apiでエラーが起こりました")
       logger.error(e.message)
