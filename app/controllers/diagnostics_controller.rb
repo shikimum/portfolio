@@ -41,9 +41,10 @@ class DiagnosticsController < ApplicationController
     if current_user
       current_user.fatigue_type_id = @your_fatigue.id
       current_user.save!
+    else
+      session[:fatigue_type_id] = @your_fatigue.id
     end
     redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
-    # session[:your_fatigue_id] = @your_fatigue_id
   end
 
   def result
