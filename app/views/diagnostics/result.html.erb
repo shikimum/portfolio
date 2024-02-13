@@ -29,7 +29,7 @@
                 </div>
                 <% end %>
                 <% if manga.description.present? %>
-                  <p class="mb-3"><%= manga.description %></p>
+                  <p class="mb-3"><%= sanitize manga.description, tags: %w(br wbr) %></p>
                 <% end %>
               <% end %>
             </ul>

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.fatigue_type_id = session[:fatigue_type_id]
     if @user.save
       auto_login(@user)
       redirect_to rankings_path, success: t('users.create.success')
