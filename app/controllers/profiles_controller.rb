@@ -42,6 +42,7 @@ class ProfilesController < ApplicationController
         @data = JSON.parse(response.body)
         manga.thumbnail = @data.dig("volumeInfo", "imageLinks", "thumbnail")
         manga.buylink = @data.dig("saleInfo", "buyLink")
+        manga.description = @data.dig("volumeInfo", "description")
       rescue StandardError => e
         logger.error("google apiでエラーが起こりました")
         logger.error(e.message)
