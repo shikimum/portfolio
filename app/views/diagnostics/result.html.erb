@@ -8,7 +8,7 @@
     <div class="col-md-10 col-lg-8 mx-auto custom-font text-secondary">
       <h1><%= t('.title') %></h1>
 
-      <div class="mb-3">
+      <div>
         <% if @your_fatigue.present? %>
           <h2>あなたは<strong><%= @your_fatigue.name %></strong>で疲れているようです。</h2>
           <div class="mb-3">
@@ -19,27 +19,28 @@
             <h2>おすすめの漫画一覧</h2>
             <ul>
               <% @mangas.each do |manga| %>
-                <li><strong><%= manga.title %></strong></li>
+                <li><h4><strong><%= manga.title %></strong></h4></li>
                 <% if manga.thumbnail.present? %>
                   <%= image_tag(manga.thumbnail) %>
                 <% end %>
                 <% if manga.buylink.present? %>
                 <div>
-                  <%= link_to "買う", manga.buylink, class: 'btn btn-light float-right text-secondary mt-3', target: :_blank %>
+                  <%= link_to "買う", manga.buylink, class: 'btn btn-light float-right text-secondary mt-3 mb-3', target: :_blank %>
                 </div>
                 <% end %>
                 <% if manga.description.present? %>
-                  <%= manga.description %>
+                  <p class="mb-3"><%= manga.description %></p>
                 <% end %>
               <% end %>
             </ul>
 
-            <h2>おすすめのアロマ</h2>
-            <ul>
+            <h2 class="mb-3">より効果的な処方は？</h2>
+            <div>アロマは様々な身体的・心理的不調に効果的だと研究結果で明らかにされています。</div>
+            <div>漫画を読みながら、アロマを焚くことでより高い効果が期待されます。</div>
               <% @aromas.each do |aroma| %>
-                <li><strong><%= aroma.name %></strong></li>
+                <div class="mb-3 mt-3"><h4><strong><%= aroma.name %></strong></h4></div>
+                <div><%= aroma.description %></div>
               <% end %>
-            </ul>
           </div>
         <% else %>
           <strong>疲労タイプが見つかりませんでした。</strong>
