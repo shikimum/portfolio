@@ -43,7 +43,7 @@ class DiagnosticsController < ApplicationController
       current_user.save!
     end
     redirect_to result_diagnostics_path(your_fatigue_id: max_fatigue_id)
-    session[:your_fatigue_id] =  @your_fatigue_id
+    # session[:your_fatigue_id] = @your_fatigue_id
   end
 
   def result
