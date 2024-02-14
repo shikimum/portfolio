@@ -1,11 +1,11 @@
 <% def ranking_icon(position) %>
   <% case position %>
     <% when 1 %>
-      <%= image_tag("gold_icon.png", class: "ranking-icon") %> 
+      <%= content_tag(:div, image_tag("gold_icon.png", class: "ranking-icon"), class: "ranking-icon-container") %>
     <% when 2 %>
-      <%= image_tag("silver_icon.png", class: "ranking-icon") %> 
+      <%= content_tag(:div, image_tag("silver_icon.png", class: "ranking-icon"), class: "ranking-icon-container") %>
     <% when 3 %>
-      <%= image_tag("bronze_icon.png", class: "ranking-icon") %> 
+      <%= content_tag(:div, image_tag("bronze_icon.png", class: "ranking-icon"), class: "ranking-icon-container") %>
     <% else %>
       <%= position %>
   <% end %>
@@ -23,14 +23,20 @@
           <h1 class="text-nowrap text-center"><%= t('.title') %></h1>
           
           <!-- Ranking List -->
-          <div class="card mt-3">
+          <!-- ランキングリスト -->
+          <div class="card">
             <div class="card-body">
               <% @ranking.each_with_index do |manga, index| %>
-                  <%= ranking_icon(index + 1) %> <h5 class="card-title"><%= manga.title %><%= render 'shared/like_button', manga: manga %></h5>
+                <%= ranking_icon(index + 1) %> 
+                <h5 class="card-title mt-3 mb-3"><%= manga.title %><%= render 'shared/like_button', manga: manga %></h5>
+                <% if manga.thumbnail.present? %>
+                  <div class="thumbnail-container mb-3">
+                    <%= image_tag(manga.thumbnail) %>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
