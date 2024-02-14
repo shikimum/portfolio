@@ -48,6 +48,8 @@ ja:
       failure: 質問にすべて回答してください
     result:
       title: 診断結果
+      buylink: 買う
+      registration: ユーザー登録をする
   reviews:
     new:
       title: レビュー作成
