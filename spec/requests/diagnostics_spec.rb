@@ -8,6 +8,20 @@ RSpec.describe "Diagnostics", type: :request do
     end
   end
 
+  describe "GET /result" do
+    it "returns http success" do
+      get result_diagnostics_path
+      expect(response).to have_http_status(:success)
+    end
+    context "your_fatigue_typeがイライラに選ばれた状態" do
+      let(:your_fatigue_type) { FatigueType.find_by(name: "イライラ") }
+      it "returns http success" do
+        get result_diagnostics_path(your_fatigue_id: your_fatigue_type.id)
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
   describe "POST /create" do
     context "答えがイライラになる場合" do
       let(:your_fatigue_type) { FatigueType.find_by(name: "イライラ") }
