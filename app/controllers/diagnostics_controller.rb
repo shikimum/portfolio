@@ -49,6 +49,10 @@ class DiagnosticsController < ApplicationController
 
   def result
     @fatigue_type_id = params[:your_fatigue_id] # showページに渡された疲労タイプのID
+    unless @fatigue_type_id.present?
+      render :result
+      return
+    end
     @your_fatigue = FatigueType.find(@fatigue_type_id)
     # 対応する manga と aroma を取得
     @mangas = Manga.where(fatigue_type_id: @fatigue_type_id)
