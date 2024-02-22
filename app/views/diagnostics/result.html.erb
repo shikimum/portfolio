@@ -1,5 +1,9 @@
 <% content_for(:title, t('.title')) %>
-<div class="container-fluid bg-<%= @your_fatigue.color %>">
+<% if @your_fatigue.present? %>
+  <div class="container-fluid bg-<%= @your_fatigue.color %>">
+<% else %>
+  <div class="container-fluid">
+<% end %>
   <div class="d-flex justify-content-center align-items-center">
     <img src="<%= image_path('aroma_top.png') %>" alt="Your Image" class="img-fluid">
   </div>
