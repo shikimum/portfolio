@@ -63,6 +63,9 @@ class DiagnosticsController < ApplicationController
       http_client.use_ssl = true
       response = http_client.request(get_request)
       @data = JSON.parse(response.body)
+      logger.info("---google api response ---")
+      logger.info(@data.inspect)
+      logger.info(@data.dig("saleInfo", "buyLink").inspect)
       manga.thumbnail = @data.dig("volumeInfo", "imageLinks", "thumbnail")
       manga.buylink = @data.dig("saleInfo", "buyLink")
       manga.description = @data.dig("volumeInfo", "description")
