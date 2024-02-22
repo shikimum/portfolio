@@ -27,11 +27,11 @@
                 <% if manga.thumbnail.present? %>
                   <%= image_tag(manga.thumbnail) %>
                 <% end %>
-                <% if manga.buylink.present? %>
+                
                 <div>
                   <%= link_to t('.buylink'), manga.buylink, class: 'btn btn-light float-right text-secondary mt-3 mb-3', target: '_blank' %>
                 </div>
-                <% end %>
+                
                 <% if manga.description.present? %>
                   <p class="mb-3"><%= sanitize manga.description, tags: %w(br wbr) %></p>
                 <% end %>
