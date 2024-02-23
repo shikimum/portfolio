@@ -103,5 +103,5 @@ Figma： https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?ty
 - サーバーサイドはRuby on Railsを使用し、フロントエンドは非同期通信を活用します。
 - SNSシェア機能：X、instagram、Facebook
 - 通知：お気に入りの漫画に新しいレビューが投稿された場合に、LINE Messaging APIを使用してユーザーに通知が届く仕組みです。
-- 検索機能：Stimulus Autocomplete（Rails7)
+- 検索機能：Stimulus Autocomplete（Rails7）
 - 漫画サムネイル・購入・説明表示: Google Book Apiを使用します。
