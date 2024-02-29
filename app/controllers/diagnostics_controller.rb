@@ -14,10 +14,11 @@ class DiagnosticsController < ApplicationController
       if answer != "true" && answer != "false"
         flash.now[:danger] = "回答が不十分のエラーです。"
         return redirect_to diagnostics_path
+        # 違うパラメーターが送信された際の対策。
       end
       # ユーザーの回答を取得
-      user_answers = UserAnswer.where(question_id: index.to_i, answer: answer)
-      user_answers.each do |user_answer|
+      user_answers = UserAnswer.where(question_id: index.to_i, answer: answer) # 条件に一致したレコードをとってくる
+      user_answers.each do |user_answer| # eachを使用することで順番を指定しなくていい。
         # ポイントを加算
         @faigue_points[user_answer.fatigue_type_id] += user_answer.point
       end
@@ -25,7 +26,7 @@ class DiagnosticsController < ApplicationController
 
     # 質問IDが10で回答がfalseの場合の条件分岐(子供がいないと回答した時に、育児疲れタイプにならないようにする。)
     if answers[10] == 'false'
-      @faigue_points = @faigue_points.keys.reject { |id| id == FatigueType.find_by(title: "育児疲れ").id }
+      @faigue_points = @faigue_points.keys.reject { |id| id == FatigueType.find_by(title: "育児疲れ").id } # keys(fatigue_type)
     end
 
     # 同点の場合、ランダムで疲労タイプを選択
