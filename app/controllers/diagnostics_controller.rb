@@ -30,7 +30,7 @@ class DiagnosticsController < ApplicationController
     end
 
     # 同点の場合、ランダムで疲労タイプを選択
-    max_fatigue_ids = @faigue_points.sort_by { |_id, points| points }.reverse.to_h.keys
+    max_fatigue_ids = @faigue_points.sort_by { |_id, points| points }.reverse.to_h.keys # 新しいsort分を箱に入れるためto_hを記載
     if max_fatigue_ids.size > 1 && @faigue_points[max_fatigue_ids[0]] == @faigue_points[max_fatigue_ids[1]]
       max_fatigue_ids = max_fatigue_ids.select { |id| @faigue_points[id] == @faigue_points[max_fatigue_ids[0]] }
       max_fatigue_id = max_fatigue_ids.sample
