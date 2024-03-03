@@ -116,9 +116,10 @@
 - LINE Messaging API  
 - Google Book Api
 
+
 # 画面遷移図
 Figma： https://www.figma.com/file/v5y0f284ygTCf0dhWQFfPE/%E7%84%A1%E9%A1%8C?type=design&node-id=1-34&mode=design&t=Tp7x5d5XNqmQRPS3-0
 
 
 # ER図
-![漫画の処方箋-ER図](https://github.com/shikimum/portfolio/assets/138554084/7039b4bc-3d5e-41af-8878-acb3318e0913)
+![漫画の処方箋-ER図](https://github.com/shikimum/portfolio/assets/138554084/a6d6b1ce-93b5-487f-8f7d-e4c0ed25d49e)
