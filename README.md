@@ -54,6 +54,8 @@
 - 漫画をあまり読まない友人、家族に使用してもらいます。
 - Xやmattermostに告知します。
 - Fledge Hubの登録。
+- QiitaとZennに記事を書く。  
+  [Qiita記事](https://qiita.com/Shikimum/items/37d672df21d96308d812)
 
 ## サービスの差別化ポイント・推しポイント  
 - ユーザーの疲れに焦点を当てた漫画診断。
@@ -61,10 +63,8 @@
 - 診断プロセスも説得力が感じにくかったため、よりユーザーに合った漫画を提案できるように、高品質な質問を作成することを目指しています。  
 
 【競合サービスの例】  
-- 名作！「今のあなたにオススメの漫画診断」  
-  - https://mirrorz.jp/article/osusume-no-manga/  
-- 【話題作から歴代の名作まで】あなたにおすすめの漫画診断  
-  - https://curazy.com/archives/74416
+- [名作！「今のあなたにオススメの漫画診断」](https://mirrorz.jp/article/osusume-no-manga/)
+- [【話題作から歴代の名作まで】あなたにおすすめの漫画診断](https://curazy.com/archives/74416)
  
 直感的に質問の意図が曖昧で、診断結果が自分と紐ずく内容だと思いにくかった印象があります。
 
@@ -99,7 +99,7 @@
 ### **【バックエンド】**  
 - Ruby on Rails 7.0.8  
 - Ruby 3.1.4  
-- MySQL  
+- JawsDB MySQL  
 - gem  
   - sorcery
 
