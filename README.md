@@ -99,7 +99,7 @@
 ### **【バックエンド】**  
 - Ruby on Rails 7.0.8  
 - Ruby 3.1.4  
-- JawsDB MySQL  
+- MySQL  
 - gem  
   - sorcery
 
