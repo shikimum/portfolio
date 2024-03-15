@@ -99,9 +99,12 @@
 ### **【バックエンド】**  
 - Ruby on Rails 7.0.8  
 - Ruby 3.1.4  
-- MySQL  
+- MySQL 8.0
 - gem  
   - sorcery
+  - line-bot-api
+  - bootstrap
+  - rspec-rails
 
 ### **【フロントエンド】**
 - JavaScript  
